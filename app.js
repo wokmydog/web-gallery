@@ -1,10 +1,10 @@
 const backgroundImages = [
-    'backgrounds/bg1.jpg',
-    'backgrounds/bg2.jpg',
-    'backgrounds/bg3.jpg',
-    'backgrounds/bg4.jpg',
-    'backgrounds/bg5.jpg',
-    'backgrounds/bg6.jpg'
+    'images/backgrounds/bg1.jpg',
+    'images/backgrounds/bg2.jpg',
+    'images/backgrounds/bg3.jpg',
+    'images/backgrounds/bg4.jpg',
+    'images/backgrounds/bg5.jpg',
+    'images/backgrounds/bg6.jpg'
 ];
 
 function setRandomBackground() {
