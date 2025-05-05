@@ -3,44 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Picture Gallery</title>
+  <title>Image Gallery</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="header">
+      <h1>Image Gallery</h1>
+      <input type="file" id="background-upload" accept="image/*">
+      <button id="apply-background">Nastavit pozadí</button>
+  </div>
 
+  <div id="gallery"></div>
 
-    <!--Header-->
-    <header>
-        <h1>Picture Gallery</h1>
-        <input type="file" id="backgroundUpload" accept="image/png, image/jpeg"
-        <nav id="categories">
-          <button data-category="all">All</button>
-          <button data-category="nature">Nature</button>
-          <button data-category="city">City</button>
-          <button data-category="technology">Technology</button >
-        </nav>
-      </header>
-      
-      <!--Main-->
-      <main>
-        <div id="background-blur"></div> <!--blurring-->
-        <section id="gallery">
-          <!--pictures-->
-        </section>
-      </main>
-
-      <!--Lightbox-->
-      <div id="lightbox" class="hidden">
-        <span id="close">&times;</span>
-        <img id="lightbox-img" src="" alt="Increase image size">
-        <div id="lightbox-nav">
-          <button id="prev">&larr;</button>
-          <button id="next">&rarr;</button>
-        </div>
-      </div>
-      
-      <script src="~/Project/gallery.js"></script>
-      <script src="~/Project/lightbox.js"></script>
-      <script src="~/Project/background.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
