@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picture Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <!--Header-->
+    <header>
+        <h1>Picture Gallery</h1>
+        <input type="file" id="backgroundUpload" accept="image/png, image/jpeg"
+        <nav id="categories">
+          <button data-category="all">All</button>
+          <button data-category="nature">Nature</button>
+          <button data-category="city">City</button>
+          <button data-category="technology">Technology</button >
+        </nav>
+      </header>
+      
+      <!--Main-->
+      <main>
+        <div id="background-blur"></div> <!--blurring-->
+        <section id="gallery">
+          <!--pictures-->
+        </section>
+      </main>
+
+      <!--Lightbox-->
+      <div id="lightbox" class="hidden">
+        <span id="close">&times;</span>
+        <img id="lightbox-img" src="" alt="Increase image size">
+        <div id="lightbox-nav">
+          <button id="prev">&larr;</button>
+          <button id="next">&rarr;</button>
+        </div>
+      </div>
+      
+      <script src="~/Project/gallery.js"></script>
+      <script src="~/Project/lightbox.js"></script>
+      <script src="~/Project/background.js"></script>
+</body>
+</html>
