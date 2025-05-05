@@ -3,6 +3,7 @@ body {
     font-family: sans-serif;
     position: relative;
     overflow-x: hidden;
+    transition: background-image 3s ease-in-out;
 }
 
 #gallery-background {

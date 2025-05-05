@@ -1,4 +1,23 @@
-console.log('Hello world!')
+const backgroundImages = [
+    'backgrounds/bg1.jpg',
+    'backgrounds/bg2.jpg',
+    'backgrounds/bg3.jpg',
+    'backgrounds/bg4.jpg',
+    'backgrounds/bg5.jpg',
+    'backgrounds/bg6.jpg'
+];
+
+function setRandomBackground() {
+    const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+    const selectedImage = backgroundImages[randomIndex];
+
+    document.body.style.backgroundImage = `url('${selectedImage}')`;
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundAttachment = 'fixed';
+}
+
+window.onload = setRandomBackground;
 
 const images = [
     {src:"images/nature/nature1.jpg", category: 'Nature',  title: 'Nice meadow'},
