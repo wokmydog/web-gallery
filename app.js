@@ -11,6 +11,8 @@ function setRandomBackground() {
     const randomIndex = Math.floor(Math.random() * backgroundImages.length);
     const selectedImage = backgroundImages[randomIndex];
 
+    console.log('Selected background:', selectedImage);
+
     document.body.style.backgroundImage = `url('${selectedImage}')`;
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundPosition = 'center';
