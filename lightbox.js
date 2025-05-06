@@ -19,6 +19,7 @@ function openLightbox(index) {
     const img = document.querySelectorAll('.gallery-item')[index];
     if (img) {
         lightboxImg.src = img.src;
+        lightboxTitle.textContext = images[index].title;
         lightbox.classList.remove('hidden');
         setTimeout(() => lightbox.classList.add('visible'), 10);
     }

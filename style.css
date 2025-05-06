@@ -113,8 +113,8 @@ body {
 
   .lightbox .close {
     position: absolute;
-    top: -20px;
-    right: -20px;
+    top: 10px;
+    right: 10px;
     font-size: 32px;
     color: white;
     cursor: pointer;
@@ -146,3 +146,11 @@ body {
 .lightbox-arrow.right {
     right: 0;
 }
+
+.lightbox-title {
+    color: #fff;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
