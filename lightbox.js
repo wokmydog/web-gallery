@@ -1,49 +1,38 @@
-//lightbox
+let currentIndex = 0;
+let filteredImages = [...images];
+
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-image');
+const lightboxTitle = document.getElementById('lightbox-title');
 const closeButton = document.querySelector('.lightbox .close');
-let currentIndex = -1;
+const leftArrow = document.querySelector('.arrow.left');
+const rightArrow = document.querySelector('.arrow.right');
 
-//open lightbox
-document.querySelector('#gallery').addEventListener('click', (e) => {
-    if (e.target && e.target.matches('.gallery-item')) {
-        lightboxImg.src = e.target.src;
-        lightbox.classList.remove('hidden');
-        setTimeout(() => {
-            lightbox.classList.add('visible');
-        }, 10);
-    }
-});
 
 function openLightbox(index) {
-    const img = document.querySelectorAll('.gallery-item')[index];
-    if (img) {
-        lightboxImg.src = img.src;
-        lightboxTitle.textContext = images[index].title;
-        lightbox.classList.remove('hidden');
-        setTimeout(() => lightbox.classList.add('visible'), 10);
-    }
+    const image = filteredImages[index];
+    if (!image) return;
+
+    lightboxImg.src = image.src;
+    lightboxTitle.textContent = image.title;
+    lightbox.classList.remove('hidden');
+    setTimeout(() => lightbox.classList.add('visible'), 10);
 }
 
-function showNextImage() {
-    const items = document.querySelectorAll('.gallery-item');
-    if (currentIndex < items.length - 1) {
-        currentIndex++;
-    } else {
-        currentIndex = 0; // loop around
-    }
+function navigateLightbox(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = filteredImages.length - 1;
+    if (currentIndex >= filteredImages.length) currentIndex = 0;
     openLightbox(currentIndex);
 }
 
-function showPrevImage() {
-    const items = document.querySelectorAll('.gallery-item');
-    if (currentIndex > 0) {
-        currentIndex--;
-    } else {
-        currentIndex = items.length - 1; // loop around
+document.querySelector('#gallery').addEventListener('click', (e) => {
+    if (e.target && e.target.matches('.gallery-item')) {
+        const clickedSrc = e.target.src;
+        currentIndex = filteredImages.findIndex(img => clickedSrc.includes(img.src));
+        openLightbox(currentIndex);
     }
-    openLightbox(currentIndex);
-}
+});
 
 //arrow keys
 document.querySelector('.lightbox-arrow.left').addEventListener('click', showPrevImage);

@@ -121,14 +121,21 @@ function renderGallery() {
 }
 
     //filtering images
+
+    let filteredImages = [...images];
+
     function filterImages(event) {
         const category = event.target.dataset.category; //get category
         const gallery = document.querySelector('.image-gallery');
         const images = gallery.querySelectorAll('.gallery-item'); //find images
     
-        images.forEach(img => {
-            if (category === 'all' || img.dataset.category === category) {
-                img.style.display = 'block';
+        filteredImages = [];
+
+        images.forEach(imgEl => {
+            const imgData = images.find(img => img.src.includes(imgEl.src));
+            if (category === 'all' || imgEl.dataset.category === category) {
+                imgEl.style.display = 'block';
+                if(imgData) filteredImages.push(imgData); //filtered array
             } else {
                 img.style.display = 'none';
             }
