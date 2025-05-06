@@ -1,18 +1,49 @@
 //auto bg
-const backgroundImages = [
-    'images/backgrounds/bg1.jpg',
-    'images/backgrounds/bg2.jpg',
-    'images/backgrounds/bg3.jpg',
-    'images/backgrounds/bg4.jpg',
-    'images/backgrounds/bg5.jpg',
-    'images/backgrounds/bg6.jpg'
-];
+const backgroundImagesByCategory = {
+all: [
+    'images/backgrounds/nature1bg.jpg',
+    'images/backgrounds/nature2bg.jpg',
+    'images/backgrounds/nature3bg.jpg',
+    'images/backgrounds/nature4bg.jpg',
+    'images/backgrounds/nature5bg.jpg',
+    'images/backgrounds/citybg1.jpg',
+    'images/backgrounds/citybg2.jpg',
+    'images/backgrounds/citybg3.jpg',
+    'images/backgrounds/citybg4.jpg',
+    'images/backgrounds/citybg5.jpg',
+    'images/backgrounds/techbg1.jpg',
+    'images/backgrounds/techbg2.jpg',
+    'images/backgrounds/techbg3.jpg',
+    'images/backgrounds/techbg4.jpg',
+    'images/backgrounds/techbg5.jpg'
+],
+Nature: [
+    'images/backgrounds/nature1bg.jpg',
+    'images/backgrounds/nature2bg.jpg',
+    'images/backgrounds/nature3bg.jpg',
+    'images/backgrounds/nature4bg.jpg',
+    'images/backgrounds/nature5bg.jpg'
+],
+City: [
+    'images/backgrounds/citybg1.jpg',
+    'images/backgrounds/citybg2.jpg',
+    'images/backgrounds/citybg3.jpg',
+    'images/backgrounds/citybg4.jpg',
+    'images/backgrounds/citybg5.jpg'
+],
+Tech: [
+    'images/backgrounds/techbg1.jpg',
+    'images/backgrounds/techbg2.jpg',
+    'images/backgrounds/techbg3.jpg',
+    'images/backgrounds/techbg4.jpg',
+    'images/backgrounds/techbg5.jpg'
+]
+};
 
-function setRandomBackground() {
-    const randomIndex = Math.floor(Math.random() * backgroundImages.length);
-    const selectedImage = backgroundImages[randomIndex];
-
-    console.log('Selected background:', selectedImage);
+function setRandomBackground(category = 'all') {
+    const images = backgroundImagesByCategory[category] || backgroundImagesByCategory.all;
+    const randomIndex = Math.floor(Math.random() * images.length);
+    const selectedImage = images[randomIndex];
 
     document.body.style.backgroundImage = `url('${selectedImage}')`;
     document.body.style.backgroundSize = 'cover';
@@ -20,7 +51,6 @@ function setRandomBackground() {
     document.body.style.backgroundAttachment = 'fixed';
 }
 
-window.onload = setRandomBackground;
 
 //img gallery
 const images = [
@@ -86,6 +116,8 @@ function renderGallery() {
                 img.style.display = 'none';
             }
         }); 
+
+        setRandomBackground(category);
     }
 
     document.getElementById('apply-background').addEventListener('click', () => {
@@ -110,3 +142,5 @@ function renderGallery() {
     });
     
     renderGallery();
+
+    window.onload = () => setRandomBackground('all');
