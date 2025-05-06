@@ -116,21 +116,23 @@ const lightbox = document.getElementById('lightbox')
 const lightboxImg = document.getElementById('lightbox-image')
 const closeButton = document.querySelector('.lightbox .close')
 
-//show lightbox
-document.querySelectorAll('.gallery-item').forEach(img => {
-    img.addEventListener('click', () =>{
-        lightboxImg.src = img.src;
+//open lightbox
+document.querySelector('#gallery').addEventListener('click', (e) => {
+    if (e.target && e.target.matches('.gallery-item')) {
+        lightboxImg.src = e.target.src;
         lightbox.classList.remove('hidden');
-    });
+    }
 });
 
-//x cliuck
+//x click
 closeButton.addEventListener('click', () => {
- lightbox.classList.add('hidden');
+ lightbox.classList.remove('visible');
+ setTimeout(() => lightbox.classList.add('hidden'), 300)
 });
 
 lightbox.addEventListener('click', (e) => {
-if(e.target === lightbox){
-    lightbox.classList.add('hidden');
-}
+    if (e.target === lightbox) {
+        lightbox.classList.remove('visible');
+        setTimeout(() => lightbox.classList.add('hidden'), 300);
+    }
 });
