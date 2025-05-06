@@ -77,8 +77,12 @@ body {
 
   .lightbox-content {
     position: relative;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 90vw;
+    max-height: 80vw;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    object-fit: contain;
   }
 
   .lightbox-content img {
