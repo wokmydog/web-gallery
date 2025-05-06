@@ -39,7 +39,7 @@ body {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 1rem;
     margin: 2rem auto;
-    max-width: 90%;
+    max-width: 70%;
     flex-wrap: wrap;
     gap: 1rem;
 }
@@ -77,8 +77,9 @@ body {
 
   .lightbox-content {
     position: relative;
-    max-width: 60vw;
-    max-height: 60vh;
+    width: 90%;
+    height: auto;
+    max-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,15 +88,16 @@ body {
   }
 
   .lightbox-content img {
-    width: 100%;
-    max-height: 100%;
+    width: auto;
+    max-width: 100%;
     height: auto;
+    max-height: 100%;
     object-fit: contain;
     border-radius: 10px;
   }
 
   .lightbox .close {
-    position: absolute;
+    position: relative;
     top: -20px;
     right: -20px;
     font-size: 32px;
