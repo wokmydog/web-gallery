@@ -1,3 +1,4 @@
+//auto bg
 const backgroundImages = [
     'images/backgrounds/bg1.jpg',
     'images/backgrounds/bg2.jpg',
@@ -21,6 +22,7 @@ function setRandomBackground() {
 
 window.onload = setRandomBackground;
 
+//img gallery
 const images = [
     {src:"images/nature/nature1.jpg", category: 'Nature',  title: 'Nice meadow'},
     {src:"images/nature/nature2.jpg", category: 'Nature',  title: 'Bubbly grass'},
@@ -109,3 +111,26 @@ function renderGallery() {
     
     renderGallery();
 
+//lightbox
+const lightbox = document.getElementById('lightbox')
+const lightboxImg = document.getElementById('lightbox-image')
+const closeButton = document.getElementById('.lightbox .close')
+
+//show lightbox
+document.querySelectorAll(' .gallery img').forEach(img => {
+    img.addEventListener('click', () =>{
+        lightboxImg.src = img.src;
+        lightbox.classList.remove('hidden');
+    });
+});
+
+//x cliuck
+closeButton.addEventListener('click', () => {
+ lightbox.classList.add('hidden');
+});
+
+lightbox.addEventListener('click', (e) => {
+if(e.target === lightbox){
+    lightbox.classList('hidden');
+}
+});
