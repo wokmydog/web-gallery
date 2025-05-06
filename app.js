@@ -114,10 +114,10 @@ function renderGallery() {
 //lightbox
 const lightbox = document.getElementById('lightbox')
 const lightboxImg = document.getElementById('lightbox-image')
-const closeButton = document.getElementById('.lightbox .close')
+const closeButton = document.querySelector('.lightbox .close')
 
 //show lightbox
-document.querySelectorAll(' .gallery img').forEach(img => {
+document.querySelectorAll('.gallery-item').forEach(img => {
     img.addEventListener('click', () =>{
         lightboxImg.src = img.src;
         lightbox.classList.remove('hidden');
@@ -131,6 +131,6 @@ closeButton.addEventListener('click', () => {
 
 lightbox.addEventListener('click', (e) => {
 if(e.target === lightbox){
-    lightbox.classList('hidden');
+    lightbox.classList.add('hidden');
 }
 });
