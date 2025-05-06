@@ -112,27 +112,35 @@ function renderGallery() {
     renderGallery();
 
 //lightbox
-const lightbox = document.getElementById('lightbox')
-const lightboxImg = document.getElementById('lightbox-image')
-const closeButton = document.querySelector('.lightbox .close')
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-image');
+const closeButton = document.querySelector('.lightbox .close');
 
 //open lightbox
 document.querySelector('#gallery').addEventListener('click', (e) => {
     if (e.target && e.target.matches('.gallery-item')) {
         lightboxImg.src = e.target.src;
         lightbox.classList.remove('hidden');
+        setTimeout(() => {
+            lightbox.classList.add('visible');
+        }, 10);
     }
 });
 
-//x click
+//x button
 closeButton.addEventListener('click', () => {
- lightbox.classList.remove('visible');
- setTimeout(() => lightbox.classList.add('hidden'), 300)
+    lightbox.classList.remove('visible');
+    setTimeout(() => {
+        lightbox.classList.add('hidden');
+    }, 300);
 });
 
+//close lightbox out
 lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) {
         lightbox.classList.remove('visible');
-        setTimeout(() => lightbox.classList.add('hidden'), 300);
+        setTimeout(() => {
+            lightbox.classList.add('hidden');
+        }, 300);
     }
 });
