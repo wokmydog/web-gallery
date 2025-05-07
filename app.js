@@ -151,9 +151,9 @@ document.getElementById('apply-background').addEventListener('click', () => {
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-image');
 const lightboxTitle = document.getElementById('lightbox-title');
-const closeButton = document.querySelector('.lightbox .close');
-const leftArrow = document.querySelector('.arrow.left');
-const rightArrow = document.querySelector('.arrow.right');
+const closeButton = document.querySelector('#lightbox .close');
+const leftArrow = document.querySelector('.lightbox-arrow.left');
+const rightArrow = document.querySelector('.lightbox-arrow.right');
 
 function openLightbox(index) {
     const image = filteredImages[index];
@@ -161,11 +161,13 @@ function openLightbox(index) {
 
     lightboxImg.src = image.src;
     lightboxTitle.textContent = image.title;
+    lightbox.classList.remove('hidden');
     lightbox.classList.add('visible');
 }
 
 function closeLightbox() {
     lightbox.classList.remove('visible');
+    lightbox.classList.add('hidden');
 }
 
 function navigateLightbox(direction) {
