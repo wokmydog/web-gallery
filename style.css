@@ -110,6 +110,12 @@ body.dark-mode #header {
   color: white;
 }
 
+body.dark-mode .filter-buttons button{
+  background-color: rgba(30, 30, 30, 0.5); 
+  border: 1px solid lightgrey; 
+  color: white;
+}
+
 body.dark-mode #slideout-menu {
   background: rgba(30, 30, 30, 0.4);
 }
