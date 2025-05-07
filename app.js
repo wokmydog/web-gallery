@@ -88,6 +88,9 @@ const backgroundImagesByCategory = {
         {src:"images/technology/tech12.jpg", category: 'Technology',  title: 'Mouse'},
     ];
     
+    let filteredImages = [...images];
+    let currentIndex = 0;
+
     function renderGallery() {
         const container = document.getElementById('gallery'); //find element
     
@@ -122,7 +125,6 @@ const backgroundImagesByCategory = {
     
         //filtering images
     
-        let filteredImages = [...images];
     
         function filterImages(event) {
             const category = event.target.dataset.category; //get category
@@ -164,12 +166,7 @@ const backgroundImagesByCategory = {
                 alert('Please select an image first.');
             }
         });
-        
-        renderGallery();
-    
-        window.onload = () => setRandomBackground('all');
 
-        let currentIndex = 0;
 
 //lightbox
 
@@ -191,6 +188,13 @@ function openLightbox(index) {
     setTimeout(() => lightbox.classList.add('visible'), 10);
 }
 
+function closeLightbox() {
+    lightbox.classList.remove('visible');
+    setTimeout(() => {
+        lightbox.classList.add('hidden');
+    }, 300);
+}
+
 function navigateLightbox(direction) {
     currentIndex += direction;
     if (currentIndex < 0) currentIndex = filteredImages.length - 1;
@@ -207,37 +211,25 @@ document.querySelector('#gallery').addEventListener('click', (e) => {
 });
 
 //arrow keys
-document.querySelector('.lightbox-arrow.left').addEventListener('click', showPrevImage);
-document.querySelector('.lightbox-arrow.right').addEventListener('click', showNextImage);
+leftArrow.addEventListener('click', () => navigateLightbox(-1));
+rightArrow.addEventListener('click', () => navigateLightbox(1));
+
 
 // key support
 document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('hidden')) {
-        if (e.key === 'ArrowRight') {
-            showNextImage();
-        } else if (e.key === 'ArrowLeft') {
-            showPrevImage();
-        } else if (e.key === 'Escape') {
-            closeLightbox();
-        }
+        if (e.key === 'ArrowRight') navigateLightbox(1);
+        else if (e.key === 'ArrowLeft') navigateLightbox(-1);
+        else if (e.key === 'Escape') closeLightbox();
     }
 });
 
 
 //x button
-closeButton.addEventListener('click', () => {
-    lightbox.classList.remove('visible');
-    setTimeout(() => {
-        lightbox.classList.add('hidden');
-    }, 300);
+closeButton.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
 });
 
-//close lightbox out
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-        lightbox.classList.remove('visible');
-        setTimeout(() => {
-            lightbox.classList.add('hidden');
-        }, 300);
-    }
-});
+renderGallery();
+window.onload = () => setRandomBackground('all');
