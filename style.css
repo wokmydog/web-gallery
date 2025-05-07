@@ -101,7 +101,7 @@ body {
   border-radius: 5px;
   font-size: 14px;
   font-weight: bold;
-  background-color: rgba(241, 241, 241, 0.5); 
+  background-color: rgba(241, 241, 241, 0.7); 
   border: 1px solid rgb(146, 220, 255); 
   transition: background-color 0.3s, box-shadow 0.2s;
 }
