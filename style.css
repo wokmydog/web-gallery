@@ -8,7 +8,7 @@ body {
 
 #header {
   padding: 0.8rem;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.5);
   text-align: center;
   backdrop-filter: blur(10px);
   position: sticky;
@@ -31,7 +31,7 @@ body {
   left: -250px;
   width: 200px;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.5);
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   padding: 2rem 1rem;
   display: flex;
@@ -74,7 +74,7 @@ body {
 }
 
 #logo {
-  height: 160px;
+  height: 80px;
   object-fit: contain;
 }
 
@@ -99,16 +99,17 @@ body {
 
 /*darkmode*/
 body.dark-mode {
-  background-color: #121212; /* Dark background for the whole page */
-  color: white; /* Light text for dark mode */
+  background-color: #121212; 
+  color: white; 
 }
 
 body.dark-mode #header {
+  background: rgba(40, 40, 40, 0.4); 
   color: white;
 }
 
 body.dark-mode #slideout-menu {
-  background: rgba(30, 30, 30, 0.95);
+  background: rgba(30, 30, 30, 0.4);
 }
 
 #gallery-background {
@@ -122,7 +123,7 @@ body.dark-mode #slideout-menu {
     filter: blur(2px) brightness(0.8);
 }
 
-body.dark-mode #gallery-background {
+body.dark-mode #gallery-box{
   filter: blur(2px) brightness(0.4);
   background-color: rgba(0, 0, 0, 0.6);
 }
