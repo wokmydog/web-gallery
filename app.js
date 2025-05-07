@@ -16,9 +16,11 @@ const backgroundImagesByCategory = {
     ]
 };
 
-function setRandomBackground(category = 'all') {
+function setBackground(category = 'all') {
     const images = backgroundImagesByCategory[category] || backgroundImagesByCategory.all;
-    const selectedImage = images[Math.floor(Math.random() * images.length)];
+    const selectedImage = category === 'all'
+        ? images[Math.floor(Math.random() * images.length)]
+        : images[0];
 
     document.body.style.backgroundImage = `url('${selectedImage}')`;
     document.body.style.backgroundSize = 'cover';
