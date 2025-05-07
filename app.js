@@ -215,3 +215,33 @@ hamburger.addEventListener('click', () => {
 themeToggleBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
+
+//drag-drop
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+galleryItems.forEach(item => {
+    item.addEventListener('dragstart', (e) => {
+        e.target.classList.add('dragging');
+    });
+
+    item.addEventListener('dragend', (e) => {
+        e.target.classList.remove('dragging');
+    });
+
+    item.addEventListener('dragover', (e) => {
+        e.preventDefault();
+
+        const draggingItem = document.querySelector('.dragging');
+        const currentItem = e.target;
+
+        if (draggingItem === currentItem) return;
+
+        const currentItemRect = currentItem.getBoundingClientRect();
+        const offset = currentItemRect.top + currentItemRect.height / 2;
+
+        const after = e.clientY > offset;
+
+        currentItem.parentNode.insertBefore(draggingItem, after ? currentItem.nextSibling : currentItem);
+    });
+});
+})
