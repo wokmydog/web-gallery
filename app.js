@@ -31,7 +31,6 @@ function setRandomBackground(category = 'all') {
     document.body.style.backgroundAttachment = 'fixed';
 }
 
-// ===== Image Gallery Data =====
 const images = [
     {src:"images/nature/nature1.jpg", category: 'Nature',  title: 'Nice meadow'},
     {src:"images/nature/nature2.jpg", category: 'Nature',  title: 'Bubbly grass'},
@@ -71,8 +70,13 @@ let filteredImages = [...images];
 let currentIndex = 0;
 
 //gallery
-function renderGallery() {
+function renderGallery(category = 'all') {
     const container = document.getElementById('gallery');
+    container.innerHTML = '';
+
+    filteredImages = (category === 'all') 
+        ? [...images] 
+        : images.filter(img => img.category === category);
 
     const filterButtons = document.createElement('div');
     filterButtons.classList.add('filter-buttons');
@@ -91,7 +95,7 @@ function renderGallery() {
     galleryBox.appendChild(gallery);
     container.appendChild(galleryBox);
 
-    images.forEach(image => {
+    filteredImages.forEach(image => {
         const imgElement = document.createElement('img');
         imgElement.src = image.src;
         imgElement.alt = image.title;
@@ -107,21 +111,7 @@ function filterImages(event) {
     const category = event.target.dataset.category;
     if (!category) return;
 
-    const gallery = document.querySelector('.image-gallery');
-    const imgElements = gallery.querySelectorAll('.gallery-item');
-
-    filteredImages = [];
-
-    imgElements.forEach(imgEl => {
-        const match = category === 'all' || imgEl.dataset.category === category;
-        imgEl.style.display = match ? 'block' : 'none';
-
-        if (match) {
-            const imageData = images.find(img => img.src === imgEl.src);
-            if (imageData) filteredImages.push(imageData);
-        }
-    });
-
+    renderGallery(category);
     setRandomBackground(category);
 }
 
@@ -180,17 +170,18 @@ function navigateLightbox(direction) {
 //events
 document.addEventListener('DOMContentLoaded', () => {
     renderGallery();
-    filteredImages = [...images];
     setRandomBackground('all');
 
     document.querySelector('#gallery').addEventListener('click', (e) => {
         if (e.target && e.target.matches('.gallery-item')) {
             const clickedSrc = e.target.src;
             currentIndex = filteredImages.findIndex(img => clickedSrc.includes(img.src));
-            openLightbox(currentIndex);
+            if (currentIndex !== -1) {
+                openLightbox(currentIndex);
+            }
         }
     });
-
+    
     closeButton.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
