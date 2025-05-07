@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'frutiger';
     position: relative;
     overflow-x: hidden;
     transition: background-image 3s ease-in-out;
@@ -19,11 +19,11 @@ body {
 
 #logo-container {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 2px
 }
 
 #logo {
-  height: 180px;
+  height: 140px;
   object-fit: contain;
 }
 
@@ -37,10 +37,44 @@ body {
     z-index: 5000;
 }
 
-.filter-buttons {
-    text-align: center;
-    margin: 1rem 0;
-    z-index: 5000;
+#apply-background, #background-upload {
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px;
+  color: white;
+  width: 100%;
+  transition-duration: 0.2s;
+  background: linear-gradient(rgb(93, 161, 233) 0%, rgb(29, 64, 104) 50%, rgb(13, 58, 93) 51%, rgb(15, 63, 108) 70%, rgb(26, 75, 128) 100%);
+  border-radius: 5px;
+  border: none;
+  padding: 12px 24px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s, box-shadow 0.2s;
+}
+
+/*hover effect*/
+#apply-background:hover, #background-upload:hover {
+  background: linear-gradient(rgb(85, 140, 200) 0%, rgb(19, 51, 84) 50%, rgb(11, 45, 70) 51%, rgb(13, 50, 82) 70%, rgb(21, 63, 102) 100%);
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 6px;
+}
+
+/*filter button*/
+.filter-buttons button {
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(rgb(93, 161, 233) 0%, rgb(29, 64, 104) 50%, rgb(13, 58, 93) 51%, rgb(15, 63, 108) 70%, rgb(26, 75, 128) 100%);
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s, box-shadow 0.2s;
+}
+
+/*hover effect*/
+.filter-buttons button:hover {
+  background: linear-gradient(rgb(85, 140, 200) 0%, rgb(19, 51, 84) 50%, rgb(11, 45, 70) 51%, rgb(13, 50, 82) 70%, rgb(21, 63, 102) 100%);
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 6px;
 }
 
 #gallery-box {
