@@ -2,23 +2,17 @@
 //auto bg
 const backgroundImagesByCategory = {
     all: [
-        'images/backgrounds/nature1bg.jpg', 'images/backgrounds/nature2bg.jpg', 'images/backgrounds/nature3bg.jpg',
-        'images/backgrounds/nature4bg.jpg', 'images/backgrounds/nature5bg.jpg', 'images/backgrounds/citybg1.jpg',
-        'images/backgrounds/citybg2.jpg', 'images/backgrounds/citybg3.jpg', 'images/backgrounds/citybg4.jpg',
-        'images/backgrounds/citybg5.jpg', 'images/backgrounds/techbg1.jpg', 'images/backgrounds/techbg2.jpg',
-        'images/backgrounds/techbg3.jpg', 'images/backgrounds/techbg4.jpg', 'images/backgrounds/techbg5.jpg'
+        'images/backgrounds/nature4bg.jpg', 'images/backgrounds/citybg1.jpg',
+        'images/backgrounds/techbg2.jpg',
     ],
     Nature: [
-        'images/backgrounds/nature1bg.jpg', 'images/backgrounds/nature2bg.jpg', 'images/backgrounds/nature3bg.jpg',
-        'images/backgrounds/nature4bg.jpg', 'images/backgrounds/nature5bg.jpg'
+        'images/backgrounds/nature4bg.jpg', 
     ],
     City: [
-        'images/backgrounds/citybg1.jpg', 'images/backgrounds/citybg2.jpg', 'images/backgrounds/citybg3.jpg',
-        'images/backgrounds/citybg4.jpg', 'images/backgrounds/citybg5.jpg'
+        'images/backgrounds/citybg1.jpg',
     ],
     Technology: [
-        'images/backgrounds/techbg1.jpg', 'images/backgrounds/techbg2.jpg', 'images/backgrounds/techbg3.jpg',
-        'images/backgrounds/techbg4.jpg', 'images/backgrounds/techbg5.jpg'
+        'images/backgrounds/techbg2.jpg',
     ]
 };
 
