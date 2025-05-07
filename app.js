@@ -161,13 +161,11 @@ function openLightbox(index) {
 
     lightboxImg.src = image.src;
     lightboxTitle.textContent = image.title;
-    lightbox.classList.remove('hidden');
-    setTimeout(() => lightbox.classList.add('visible'), 10);
+    lightbox.classList.add('visible');
 }
 
 function closeLightbox() {
     lightbox.classList.remove('visible');
-    setTimeout(() => lightbox.classList.add('hidden'), 300);
 }
 
 function navigateLightbox(direction) {
