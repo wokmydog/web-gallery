@@ -119,24 +119,30 @@ function filterImages(event) {
 
 //custom bg
 document.getElementById('apply-background').addEventListener('click', () => {
-    const fileInput = document.getElementById('background-upload');
-    const file = fileInput.files[0];
+    const fileInput = document.createElement('input')
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
 
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            let existing = document.getElementById('gallery-background');
-            if (existing) existing.remove();
 
-            const bg = document.createElement('img');
-            bg.id = 'gallery-background';
-            bg.src = e.target.result;
-            document.body.prepend(bg);
-        };
-        reader.readAsDataURL(file);
-    } else {
-        alert('Please select an image first.');
-    }
+    fileInput.onchange = () => {
+        const file = fileInput.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                let existing = document.getElementById('gallery-background');
+                if (existing) existing.remove();
+
+                const bg = document.createElement('img');
+                bg.id = 'gallery-background';
+                bg.src = e.target.result;
+                document.body.prepend(bg);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    fileInput.click();
 });
 
 //lightbox
