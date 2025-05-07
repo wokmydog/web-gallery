@@ -10,7 +10,7 @@ body {
   padding: 0.8rem;
   background: rgba(255, 255, 255, 0.5);
   text-align: center;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
   position: sticky;
   top: 0;
   z-index: 5000;
@@ -54,12 +54,14 @@ body {
   border-radius: 5px;
   font-size: 14px;
   cursor: pointer;
+  opacity: 50%;
   transition: background-color 0.3s, box-shadow 0.2s;
 }
 
 #theme-toggle:hover {
   background-color: #BDBDBD;
   transform: scale(1.05);
+  opacity: 70%;
 }
 
 #slideout-menu button {
@@ -87,7 +89,7 @@ body {
 
 .filter-buttons button {
   box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px;
-  color: white;
+  color: black;
   padding: 8px 16px;
   border: none;
   border-radius: 5px;
@@ -124,7 +126,7 @@ body.dark-mode #slideout-menu {
 }
 
 body.dark-mode #gallery-box{
-  filter: blur(2px) brightness(0.4);
+  filter: brightness(0.4);
   background-color: rgba(0, 0, 0, 0.6);
 }
 
