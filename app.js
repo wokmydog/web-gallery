@@ -1,6 +1,4 @@
 
-import './theme.js';
-
 //auto bg
 const backgroundImagesByCategory = {
     all: [
@@ -201,4 +199,17 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (e.key === 'Escape') closeLightbox();
         }
     });
+});
+
+//slide menu
+const hamburger = document.getElementById('hamburger');
+const slideoutMenu = document.getElementById('slideout-menu');
+const themeToggleBtn = document.getElementById('theme-toggle');
+
+hamburger.addEventListener('click', () => {
+    slideoutMenu.classList.toggle('open');
+  });
+
+themeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
 });

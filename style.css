@@ -16,13 +16,58 @@ body {
   z-index: 5000;
 }
 
+#hamburger {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 6000;
+}
+
+#slideout-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 200px;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 5500;
+  transition: left 0.3s ease;
+}
+
+/*darkmode*/
+body.dark-mode #header {
+  background: rgba(34, 34, 34, 0.9);
+  color: white;
+}
+
+body.dark-mode #slideout-menu {
+  background: rgba(30, 30, 30, 0.95);
+}
+
+#slideout-menu.open {
+  left: 0;
+}
+
+#slideout-menu button {
+  width: 100%;
+  font-size: 14px;
+  padding: 10px;
+}
+
 #logo-container {
   text-align: center;
   margin-bottom: 2px
 }
 
 #logo {
-  height: 16px;
+  height: 160px;
   object-fit: contain;
 }
 
@@ -63,61 +108,7 @@ body {
 
 /*Themes*/
 
-body.light-theme {
-  background-color: #ffffff;
-  color: #000000;
-}
 
-body.dark-theme {
-  background-color: #181818;
-  color: #ffffff;
-}
-
-body.light-blue-theme .filter-buttons button,
-body.light-blue-theme #theme-toggle {
-  background-color: #5A9BD5;
-}
-
-body.light-mint-theme .filter-buttons button,
-body.light-mint-theme #theme-toggle {
-  background-color: #98FF98; 
-}
-
-body.dark-blue-theme .filter-buttons button,
-body.dark-blue-theme #theme-toggle {
-  background-color: #4A8BD8;
-}
-
-body.dark-mint-theme .filter-buttons button,
-body.dark-mint-theme #theme-toggle {
-  background-color: #7CFC7C;
-}
-
-button:hover {
-  background-color: #7FFF7F;
-  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 6px;
-  transform: scale(1.05);
-}
-
-body.light-blue-theme {
-  --button-hover: #4D87C7;
-}
-
-body.light-mint-theme {
-  --button-hover: #7FFF7F;
-}
-
-body.dark-blue-theme {
-  --button-hover: #366F9A;
-}
-
-body.dark-mint-theme {
-  --button-hover: #66C866;
-}
-
-button:hover {
-  background-color: var(--button-hover);
-}
 
 #gallery-background {
     position: fixed;
