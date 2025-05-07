@@ -244,4 +244,3 @@ galleryItems.forEach(item => {
         currentItem.parentNode.insertBefore(draggingItem, after ? currentItem.nextSibling : currentItem);
     });
 });
-})
