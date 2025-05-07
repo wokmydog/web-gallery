@@ -126,8 +126,7 @@ body.dark-mode #slideout-menu {
 }
 
 body.dark-mode #gallery-box{
-  filter: brightness(0.4);
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 #gallery-box {
