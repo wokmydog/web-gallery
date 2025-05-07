@@ -17,6 +17,13 @@ body {
     filter: blur(2px) brightness(0.8);
 }
 
+#logo {
+  height: 60px;
+  object-fit: contain;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
 #header {
     padding: 1rem;
     background: rgba(255, 255, 255, 0.8);
