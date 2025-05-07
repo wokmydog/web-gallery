@@ -166,7 +166,12 @@ const backgroundImagesByCategory = {
                 alert('Please select an image first.');
             }
         });
+        
+        renderGallery();
+    
+        window.onload = () => setRandomBackground('all');
 
+        
 
 //lightbox
 
@@ -232,4 +237,3 @@ lightbox.addEventListener('click', (e) => {
 });
 
 renderGallery();
-window.onload = () => setRandomBackground('all');
