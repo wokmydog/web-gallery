@@ -6,6 +6,119 @@ body {
     transition: background-image 3s ease-in-out;
 }
 
+#header {
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 5000;
+}
+
+#logo-container {
+  text-align: center;
+  margin-bottom: 2px
+}
+
+#logo {
+  height: 16px;
+  object-fit: contain;
+}
+
+#theme-toggle {
+  padding: 8px 16px;
+  background-color: #98FF98;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.2s;
+}
+
+#theme-toggle:hover {
+  background-color: #7FFF7F;
+  transform: scale(1.05);
+}
+
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 10px;
+}
+
+.filter-buttons button {
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s, box-shadow 0.2s;
+}
+
+/*Themes*/
+
+body.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark-theme {
+  background-color: #181818;
+  color: #ffffff;
+}
+
+body.light-blue-theme .filter-buttons button,
+body.light-blue-theme #theme-toggle {
+  background-color: #5A9BD5;
+}
+
+body.light-mint-theme .filter-buttons button,
+body.light-mint-theme #theme-toggle {
+  background-color: #98FF98; 
+}
+
+body.dark-blue-theme .filter-buttons button,
+body.dark-blue-theme #theme-toggle {
+  background-color: #4A8BD8;
+}
+
+body.dark-mint-theme .filter-buttons button,
+body.dark-mint-theme #theme-toggle {
+  background-color: #7CFC7C;
+}
+
+button:hover {
+  background-color: #7FFF7F;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 6px;
+  transform: scale(1.05);
+}
+
+body.light-blue-theme {
+  --button-hover: #4D87C7;
+}
+
+body.light-mint-theme {
+  --button-hover: #7FFF7F;
+}
+
+body.dark-blue-theme {
+  --button-hover: #366F9A;
+}
+
+body.dark-mint-theme {
+  --button-hover: #66C866;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
 #gallery-background {
     position: fixed;
     top: 0;
@@ -17,65 +130,6 @@ body {
     filter: blur(2px) brightness(0.8);
 }
 
-#logo-container {
-  text-align: center;
-  margin-bottom: 2px
-}
-
-#logo {
-  height: 140px;
-  object-fit: contain;
-}
-
-#header {
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 5000;
-}
-
-#apply-background, #background-upload {
-  box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px;
-  color: white;
-  width: 100%;
-  transition-duration: 0.2s;
-  background: linear-gradient(rgb(93, 161, 233) 0%, rgb(29, 64, 104) 50%, rgb(13, 58, 93) 51%, rgb(15, 63, 108) 70%, rgb(26, 75, 128) 100%);
-  border-radius: 5px;
-  border: none;
-  padding: 12px 24px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background 0.3s, box-shadow 0.2s;
-}
-
-/*hover effect*/
-#apply-background:hover, #background-upload:hover {
-  background: linear-gradient(rgb(85, 140, 200) 0%, rgb(19, 51, 84) 50%, rgb(11, 45, 70) 51%, rgb(13, 50, 82) 70%, rgb(21, 63, 102) 100%);
-  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 6px;
-}
-
-/*filter button*/
-.filter-buttons button {
-  box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background: linear-gradient(rgb(93, 161, 233) 0%, rgb(29, 64, 104) 50%, rgb(13, 58, 93) 51%, rgb(15, 63, 108) 70%, rgb(26, 75, 128) 100%);
-  font-size: 16px;
-  font-weight: bold;
-  transition: background 0.3s, box-shadow 0.2s;
-}
-
-/*hover effect*/
-.filter-buttons button:hover {
-  background: linear-gradient(rgb(85, 140, 200) 0%, rgb(19, 51, 84) 50%, rgb(11, 45, 70) 51%, rgb(13, 50, 82) 70%, rgb(21, 63, 102) 100%);
-  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 6px;
-}
 
 #gallery-box {
     padding: 2rem;

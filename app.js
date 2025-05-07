@@ -1,4 +1,7 @@
-// ===== Background Handling =====
+
+import './theme.js';
+
+//auto bg
 const backgroundImagesByCategory = {
     all: [
         'images/backgrounds/nature1bg.jpg', 'images/backgrounds/nature2bg.jpg', 'images/backgrounds/nature3bg.jpg',
@@ -31,6 +34,7 @@ function setRandomBackground(category = 'all') {
     document.body.style.backgroundAttachment = 'fixed';
 }
 
+//img for gallery
 const images = [
     {src:"images/nature/nature1.jpg", category: 'Nature',  title: 'Nice meadow'},
     {src:"images/nature/nature2.jpg", category: 'Nature',  title: 'Bubbly grass'},
@@ -181,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-    
+
     closeButton.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
