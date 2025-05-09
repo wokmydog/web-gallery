@@ -208,6 +208,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
+      //reset background button
+      resetBackgroundBtn?.addEventListener('click', () => {
+        localStorage.removeItem('customBackground');
+        location.reload();
+    });
 
     });
 
