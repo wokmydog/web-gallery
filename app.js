@@ -175,6 +175,58 @@ function navigateLightbox(direction) {
 document.addEventListener('DOMContentLoaded', () => {
     renderGallery();
     setRandomBackground('all');
+    const body = document.body;
+    const themeToggle = document.getElementById('theme-toggle');
+    const backgroundUpload = document.getElementById('background-upload');
+    const applyBackgroundBtn = document.getElementById('apply-background');
+
+    //load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+    }
+
+    //load saved custom bg
+    const savedBg = localStorage.getItem('customBackground');
+    if (savedBg) {
+      applyCustomBackground(savedBg);
+    }
+
+    // theme toggle
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+        localStorage.setItem('theme', currentTheme);
+      });
+
+      applyBackgroundBtn.addEventListener('click', () => {
+        backgroundUpload.click();
+      });
+
+      //when file selected, save to local storage
+      backgroundUpload.addEventListener('change', () => {
+        const file = backgroundUpload.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            const imageData = e.target.result;
+            applyCustomBackground(imageData);
+            localStorage.setItem('customBackground', imageData);
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      function applyCustomBackground(imageDataUrl) {
+        let existing = document.getElementById('gallery-background');
+        if (existing) existing.remove();
+    
+        const bg = document.createElement('img');
+        bg.id = 'gallery-background';
+        bg.src = imageDataUrl;
+        document.body.prepend(bg);
+      }
+    });
 
     document.querySelector('#gallery').addEventListener('click', (e) => {
         if (e.target && e.target.matches('.gallery-item')) {
@@ -201,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (e.key === 'Escape') closeLightbox();
         }
     });
-});
+
 
 //slide menu
 const hamburger = document.getElementById('hamburger');
