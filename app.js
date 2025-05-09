@@ -161,7 +161,6 @@ function applyCustomBackground(imageDataUrl) {
 //events
 document.addEventListener('DOMContentLoaded', () => {
     renderGallery();
-    setRandomBackground('all');
     const body = document.body;
     const themeToggle = document.getElementById('theme-toggle');
     const backgroundUpload = document.getElementById('background-upload');
@@ -245,36 +244,3 @@ const themeToggleBtn = document.getElementById('theme-toggle');
 hamburger.addEventListener('click', () => {
     slideoutMenu.classList.toggle('open');
   });
-
-themeToggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-});
-
-//drag-drop
-const galleryItems = document.querySelectorAll('.gallery-item');
-
-galleryItems.forEach(item => {
-    item.addEventListener('dragstart', (e) => {
-        e.target.classList.add('dragging');
-    });
-
-    item.addEventListener('dragend', (e) => {
-        e.target.classList.remove('dragging');
-    });
-
-    item.addEventListener('dragover', (e) => {
-        e.preventDefault();
-
-        const draggingItem = document.querySelector('.dragging');
-        const currentItem = e.target;
-
-        if (draggingItem === currentItem) return;
-
-        const currentItemRect = currentItem.getBoundingClientRect();
-        const offset = currentItemRect.top + currentItemRect.height / 2;
-
-        const after = e.clientY > offset;
-
-        currentItem.parentNode.insertBefore(draggingItem, after ? currentItem.nextSibling : currentItem);
-    });
-});
