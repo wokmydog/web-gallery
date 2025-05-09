@@ -22,6 +22,7 @@ function setRandomBackground(category = 'all') {
         ? images[Math.floor(Math.random() * images.length)]
         : images[0];
 
+        localStorage.removeItem('customBackground');
 };
 
 //img for gallery
@@ -172,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedBg = localStorage.getItem('customBackground');
     if (savedBg) {
       applyCustomBackground(savedBg);
-    } else {
+    } else if (!savedBg){
       setRandomBackground('all'); //only apply random if no saved
     }
 
