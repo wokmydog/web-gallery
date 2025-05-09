@@ -22,11 +22,7 @@ function setRandomBackground(category = 'all') {
         ? images[Math.floor(Math.random() * images.length)]
         : images[0];
 
-    document.body.style.backgroundImage = `url('${selectedImage}')`;
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundPosition = 'center';
-    document.body.style.backgroundAttachment = 'fixed';
-}
+};
 
 //img for gallery
 const images = [
