@@ -71,24 +71,24 @@ body {
 #theme-toggle {
   box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px;
   padding: 6px 14px;
-  color: rgb(146, 220, 255);
+  color: rgb(43, 43, 43);
   border: none;
   border-radius: 5px;
   font-size: 14px;
   font-weight: bold;
   background-color: rgba(241, 241, 241, 0.7); 
   cursor: pointer;
-  border: 1px solid rgb(95, 199, 247);
-  transition: background-color 0.3s, box-shadow 0.2s;
+  border: 1px solid rgb(43, 43, 43);
+  transition: background-color 0.3s, box-shadow 0.2s, transform 0.3s ease;
 }
 
 #theme-toggle:hover {
   transform: scale(1.05);
 }
 
-#background-upload {
+#apply-background {
   box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px;
-  color: rgb(95, 199, 247);
+  color: rgb(43, 43, 43);
   padding: 6px 14px;
   border: none;
   border-radius: 5px;
@@ -96,17 +96,17 @@ body {
   font-weight: bold;
   background-color: rgba(241, 241, 241, 0.7); 
   cursor: pointer;
-  border: 1px solid rgb(95, 199, 247);
-  transition: background-color 0.3s, box-shadow 0.2s;
+  border: 1px solid rgb(43, 43, 43);
+  transition: background-color 0.3s, box-shadow 0.2s, transform 0.3s ease;
 }
 
-#background-upload:hover {
+#apply-background:hover {
   transform: scale(1.05);
 }
 
 #clear-custom-bg {
   box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px;
-  color: rgb(95, 199, 247);
+  color: rgb(43, 43, 43);
   padding: 6px 14px;
   border: none;
   border-radius: 5px;
@@ -114,8 +114,8 @@ body {
   font-weight: bold;
   background-color: rgba(241, 241, 241, 0.7); 
   cursor: pointer;
-  border: 1px solid rgb(95, 199, 247);
-  transition: background-color 0.3s, box-shadow 0.2s;
+  border: 1px solid rgb(43, 43, 43);
+  transition: background-color 0.3s, box-shadow 0.2s, transform 0.3s ease;
 }
 
 #clear-custom-bg:hover {
@@ -131,16 +131,16 @@ body {
 
 .filter-buttons button {
   box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px;
-  color: rgb(95, 199, 247);
+  color: rgb(43, 43, 43);
   padding: 8px 16px;
   border: none;
   border-radius: 5px;
   font-size: 14px;
   font-weight: bold;
   background-color: rgba(241, 241, 241, 0.7); 
-  border: 2px solid rgb(95, 199, 247);
+  border: 2px solid rgb(43, 43, 43);
   cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.2s;
+  transition: background-color 0.3s, box-shadow 0.2s, transform 0.3s ease;
 }
 
 .filter-buttons button:hover {
@@ -187,6 +187,11 @@ body.dark-mode #slideout-menu {
   background: rgba(30, 30, 30, 0.4);
 }
 
+body.dark-mode #gallery-box{
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
 #gallery-background {
     position: fixed;
     top: 0;
@@ -198,9 +203,6 @@ body.dark-mode #slideout-menu {
     filter: brightness(0.8);
 }
 
-body.dark-mode #gallery-box{
-  background-color: rgba(0, 0, 0, 0.4);
-}
 
 #gallery-box {
     padding: 2rem;
@@ -234,11 +236,6 @@ body.dark-mode #gallery-box{
   
   .gallery-item:hover {
     transform: scale(1.05);
-  }
-
-  .gallery-item.dragging {
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
   }
 
 /*lightbox*/
