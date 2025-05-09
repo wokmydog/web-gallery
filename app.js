@@ -172,7 +172,12 @@ document.addEventListener('DOMContentLoaded', () => {
     //load saved custom bg
     const savedBg = localStorage.getItem('customBackground');
     if (savedBg) {
+        try{
       applyCustomBackground(savedBg);
+         } catch (e) {
+        console.error('Invalid custom background, reverting to random.');
+        setRandomBackground('all');
+      }
     } else if (!savedBg){
       setRandomBackground('all'); //only apply random if no saved
     }
