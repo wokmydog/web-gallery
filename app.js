@@ -113,33 +113,6 @@ function filterImages(event) {
     setRandomBackground(category);
 }
 
-//custom bg
-document.getElementById('apply-background').addEventListener('click', () => {
-    const fileInput = document.createElement('input')
-    fileInput.type = 'file';
-    fileInput.accept = 'image/*';
-
-
-    fileInput.onchange = () => {
-        const file = fileInput.files[0];
-
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                let existing = document.getElementById('gallery-background');
-                if (existing) existing.remove();
-
-                const bg = document.createElement('img');
-                bg.id = 'gallery-background';
-                bg.src = e.target.result;
-                document.body.prepend(bg);
-            };
-            reader.readAsDataURL(file);
-        }
-    };
-
-    fileInput.click();
-});
 
 //lightbox
 const lightbox = document.getElementById('lightbox');
@@ -149,6 +122,7 @@ const closeButton = document.querySelector('#lightbox .close');
 const leftArrow = document.querySelector('.lightbox-arrow.left');
 const rightArrow = document.querySelector('.lightbox-arrow.right');
 
+//opening lightbox
 function openLightbox(index) {
     const image = filteredImages[index];
     if (!image) return;
@@ -159,17 +133,30 @@ function openLightbox(index) {
     lightbox.classList.add('visible');
 }
 
+//closing lightbox
 function closeLightbox() {
     lightbox.classList.remove('visible');
     lightbox.classList.add('hidden');
 }
 
+//lightbox navigation
 function navigateLightbox(direction) {
     currentIndex += direction;
     if (currentIndex < 0) currentIndex = filteredImages.length - 1;
     if (currentIndex >= filteredImages.length) currentIndex = 0;
     openLightbox(currentIndex);
 }
+
+//custom bg
+function applyCustomBackground(imageDataUrl) {
+    let existing = document.getElementById('gallery-background');
+    if (existing) existing.remove();
+  
+    const bg = document.createElement('img');
+    bg.id = 'gallery-background';
+    bg.src = imageDataUrl;
+    document.body.prepend(bg);
+  }
 
 //events
 document.addEventListener('DOMContentLoaded', () => {
@@ -190,6 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedBg = localStorage.getItem('customBackground');
     if (savedBg) {
       applyCustomBackground(savedBg);
+    } else {
+      setRandomBackground('all'); //only apply random if no saved
     }
 
     // theme toggle
@@ -199,6 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', currentTheme);
       });
 
+      //apply custom bg
       applyBackgroundBtn.addEventListener('click', () => {
         backgroundUpload.click();
       });
@@ -217,15 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      function applyCustomBackground(imageDataUrl) {
-        let existing = document.getElementById('gallery-background');
-        if (existing) existing.remove();
-    
-        const bg = document.createElement('img');
-        bg.id = 'gallery-background';
-        bg.src = imageDataUrl;
-        document.body.prepend(bg);
-      }
+
     });
 
     document.querySelector('#gallery').addEventListener('click', (e) => {
