@@ -128,8 +128,6 @@ body.dark-mode #slideout-menu {
   background: rgba(30, 30, 30, 0.4);
 }
 
-
-
 #gallery-background {
     position: fixed;
     top: 0;
@@ -138,7 +136,7 @@ body.dark-mode #slideout-menu {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    filter: blur(2px) brightness(0.8);
+    filter: brightness(0.8);
 }
 
 body.dark-mode #gallery-box{
