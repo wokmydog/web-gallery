@@ -71,13 +71,9 @@ let filteredImages = [...images];
 let currentIndex = 0;
 
 //gallery
-function renderGallery(category = 'all') {
+function renderGallery(imagesToRender) {
     const container = document.getElementById('gallery');
     container.innerHTML = '';
-
-    filteredImages = (category === 'all') 
-        ? [...images] 
-        : images.filter(img => img.category === category);
 
     const filterButtons = document.createElement('div');
     filterButtons.classList.add('filter-buttons');
@@ -96,7 +92,7 @@ function renderGallery(category = 'all') {
     galleryBox.appendChild(gallery);
     container.appendChild(galleryBox);
 
-    filteredImages.forEach(image => {
+    imagesToRender.forEach(image => {
         const imgElement = document.createElement('img');
         imgElement.src = image.src;
         imgElement.alt = image.title;
@@ -112,8 +108,16 @@ function filterImages(event) {
     const category = event.target.dataset.category;
     if (!category) return;
 
-    renderGallery(category);
-    setRandomBackground(category);
+    filteredImages = category = "all"
+        ? [...images]
+        : images.filter(img => img.category === category);
+
+    renderGallery(filteredImages);
+
+    const hasCustomBackground = localStorage.getItem('customBackground');
+    if (!hasCustomBackground) {
+        setRandomBackground(category);
+    }
 }
 
 
@@ -163,7 +167,8 @@ function applyCustomBackground(imageDataUrl) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderGallery();
+    filteredImages = [...images];
+    renderGallery(filteredImages);
     const body = document.body;
     const themeToggle = document.getElementById('theme-toggle');
     const backgroundUpload = document.getElementById('background-upload');
