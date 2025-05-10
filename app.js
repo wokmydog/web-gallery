@@ -22,7 +22,13 @@ function setRandomBackground(category = 'all') {
         ? images[Math.floor(Math.random() * images.length)]
         : images[0];
 
-        localStorage.removeItem('customBackground');
+        let existing = document.getElementById('gallery-background');
+        if (existing) existing.remove();
+    
+        const bg = document.createElement('img');
+        bg.id = 'gallery-background';
+        bg.src = selectedImage;
+        document.body.prepend(bg);
 };
 
 //img for gallery
@@ -162,6 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const backgroundUpload = document.getElementById('background-upload');
     const applyBackgroundBtn = document.getElementById('apply-background');
+    const resetBackgroundBtn = document.getElementById('clear-custom-bg');
+
 
     //load saved theme
     const savedTheme = localStorage.getItem('theme');
