@@ -70,7 +70,7 @@ const images = [
 let filteredImages = [...images];
 let currentIndex = 0;
 
-//gallery
+//rendering gallery
 function renderGallery(imagesToRender) {
     const container = document.getElementById('gallery');
     container.innerHTML = '';
@@ -114,8 +114,7 @@ function filterImages(event) {
 
     renderGallery(filteredImages);
 
-    const hasCustomBackground = localStorage.getItem('customBackground');
-    if (!hasCustomBackground) {
+    if (!localStorage.getItem('customBackground')) {
         setRandomBackground(category);
     }
 }
