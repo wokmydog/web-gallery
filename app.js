@@ -75,23 +75,16 @@ function renderGallery(imagesToRender) {
     const container = document.getElementById('gallery');
     container.innerHTML = '';
 
-    const filterButtons = document.createElement('div');
-    filterButtons.classList.add('filter-buttons');
-    filterButtons.innerHTML = `
-        <button data-category="all">All</button>
-        <button data-category="Nature">Nature</button>
-        <button data-category="City">City</button>
-        <button data-category="Technology">Technology</button>
-    `;
-    container.appendChild(filterButtons);
-
+    //create and populate gallery
     const galleryBox = document.createElement('div');
     galleryBox.id = 'gallery-box';
+
     const gallery = document.createElement('section');
     gallery.classList.add('image-gallery');
     galleryBox.appendChild(gallery);
     container.appendChild(galleryBox);
 
+    //add images to gallery
     imagesToRender.forEach(image => {
         const imgElement = document.createElement('img');
         imgElement.src = image.src;
@@ -101,7 +94,6 @@ function renderGallery(imagesToRender) {
         gallery.appendChild(imgElement);
     });
 
-    filterButtons.addEventListener('click', filterImages);
 }
 
 function filterImages(event) {
@@ -174,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const applyBackgroundBtn = document.getElementById('apply-background');
     const resetBackgroundBtn = document.getElementById('clear-custom-bg');
 
+    document.querySelector('.filter-buttons').addEventListener('click', filterImages);
 
     //load saved theme
     const savedTheme = localStorage.getItem('theme');
