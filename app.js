@@ -100,7 +100,7 @@ function filterImages(event) {
     const category = event.target.dataset.category;
     if (!category) return;
 
-    filteredImages = category = "all"
+    filteredImages = category === "all"
         ? [...images]
         : images.filter(img => img.category === category);
 
