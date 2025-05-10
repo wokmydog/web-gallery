@@ -28,7 +28,7 @@ function setRandomBackground(category = 'all') {
         const bg = document.createElement('img');
         bg.id = 'gallery-background';
         bg.src = selectedImage;
-        document.body.prepend(bg);
+        document.body.appendChild(bg);
 };
 
 //img for gallery
