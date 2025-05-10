@@ -282,11 +282,6 @@ body.dark-mode #gallery-box{
     transition: transform 0.3s ease-in-out;
   }
 
-  #lightbox .lightbox-content img.fade-out {
-    opacity: 0;
-    z-index: 0;
-  }
-
   .lightbox .close {
     position: absolute;
     top: 10px;
@@ -331,6 +326,27 @@ body.dark-mode #gallery-box{
     font-weight: 500;
   }
 
+  /*carousel*/
+  #carousel-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(20, 20, 20, 0.9);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    z-index: 10002;
+    font-size: 0.9rem;
+  }
+  
+  #carousel-controls input[type="number"] {
+    width: 50px;
+  }
+  
 /*fade*/
 .fade-in {
   animation: fadeIn 1s ease-in-out;

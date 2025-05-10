@@ -125,21 +125,12 @@ let isAutoCarouselActive = true; //indicate if active
 
 //move next image on list
 function showNextImageWithFade() {
-    const oldImage = lightboxImg.cloneNode(true);
-    oldImage.classList.add('fade-out');
-    lightboxImg.parentNode.insertBefore(oldImage, lightboxImg);
-
-    currentIndex = (currentIndex + 1) % filteredImages.length;
-
-    // Set up new image
+    currentIndex = (currentIndex + 1) % filteredImages.length; //loop back
+    lightboxImg.classList.remove('fade-in'); //fade
     lightboxImg.src = filteredImages[currentIndex].src;
     lightboxTitle.textContent = filteredImages[currentIndex].title;
-
-    // Force browser to render before removing the old image
-    requestAnimationFrame(() => {
-        oldImage.style.opacity = '0';
-        setTimeout(() => oldImage.remove(), 1000); // match fade duration
-    });
+    void lightboxImg.offsetWidth; // trigger reflow
+    lightboxImg.classList.add('fade-in');
 }
 
 //start automatic carousel loop, calls itself to keep looping
@@ -217,8 +208,6 @@ function applyCustomBackground(imageDataUrl) {
   }
 
 //auto carousel
-
-
 document.addEventListener('DOMContentLoaded', () => {
     filteredImages = [...images];
     renderGallery(filteredImages);
@@ -322,7 +311,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+//carousel ui
+let autoPlay = false;
+let autoPlayInterval = 5000;
+let autoPlayTimer;
 
+function startAutoPlay() {
+    clearInterval(autoPlayTimer);
+    autoPlayTimer = setInterval(() => {
+      navigateLightbox(1);
+    }, autoPlayInterval);
+  }
+
+  function stopAutoPlay() {
+    clearInterval(autoPlayTimer);
+  }
+
+  //toggle autoplay via ui
+  document.getElementById('carousel-toggle').addEventListener('change', function () {
+    autoPlay = this.checked;
+    if (autoPlay) startAutoPlay();
+    else stopAutoPlay();
+  });
+
+  //change autoplay interval via input ui
+  document.getElementById('carousel-interval').addEventListener('input', function () {
+    autoPlayInterval = parseInt(this.value) * 1000;
+    if (autoPlay) startAutoPlay();
+  });
+
+  //pause autoplay
+  document.getElementById('carousel-pause').addEventListener('click', stopAutoPlay);
+
+  //resum autoplay
+  document.getElementById('carousel-resume').addEventListener('click', () => {
+    if (autoPlay) startAutoPlay();
+  });
 
 
 
