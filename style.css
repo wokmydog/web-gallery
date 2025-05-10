@@ -405,16 +405,32 @@ body.dark-mode #gallery-box{
   }
 
   /*lightbox arrows*/
-  .lightbox-arrow.left {
-    left: -20px;
+  .lightbox-arrow {
+  font-size: 2rem;
+  padding: 0 0.8rem;
+}
+
+  .lightbox-arrow.left,
+  .lightbox-arrow.right {
     top: 50%;
     transform: translateY(-50%);
   }
 
+  .lightbox-arrow.left {
+    left: -40px;
+  }
+
   .lightbox-arrow.right {
-    right: -20px;
-    top: 50%;
-    transform: translateY(-50%);
+    right: -40px;
+  }
+
+  #lightbox .lightbox-title {
+    position: relative;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
   }
 
   .image-gallery {
