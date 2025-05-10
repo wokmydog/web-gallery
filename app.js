@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //lightbox function
     document.querySelector('#gallery').addEventListener('click', (e) => {
         if (e.target && e.target.matches('.gallery-item')) {
-            const clickedSrc = e.target.dataset.fullsrc;
+            const fullSrc = e.target.dataset.fullsrc;
             currentIndex = filteredImages.findIndex(img => img.src === fullSrc);
             if (currentIndex !== -1) {
                 openLightbox(currentIndex);
