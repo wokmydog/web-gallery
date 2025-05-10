@@ -180,12 +180,16 @@ function openLightbox(index) {
     lightboxTitle.textContent = image.title;
     lightbox.classList.remove('hidden');
     lightbox.classList.add('visible');
+
+    document.getElementById('carousel-controls')?.classList.add('visible');
 }
 
 //closing lightbox
 function closeLightbox() {
     lightbox.classList.remove('visible');
     lightbox.classList.add('hidden');
+
+    document.getElementById('carousel-controls')?.classList.remove('visible');
 }
 
 //lightbox navigation
