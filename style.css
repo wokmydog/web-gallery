@@ -14,9 +14,6 @@ body {
   position: sticky;
   top: 0;
   z-index: 5000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 #logo-container {
@@ -33,11 +30,12 @@ body {
   width: 100%;
   font-size: 14px;
   padding: 10px;
-  margin-top: 60px;
 }
 
 #hamburger {
-  position: relative;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
   font-size: 28px;
   cursor: pointer;
   z-index: 6000;
@@ -57,7 +55,7 @@ body {
   height: 100vh;
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-  padding: 2rem 1rem;
+  padding: 4rem 1rem 2rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
