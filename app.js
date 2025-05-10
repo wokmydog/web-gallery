@@ -33,36 +33,36 @@ function setRandomBackground(category = 'all') {
 
 //img for gallery
 const images = [
-    {src:"images/nature/nature1.jpg", thumb: "images/nature/thumb/nature1.jpg", category: 'Nature',  title: 'Nice meadow'},
-    {src:"images/nature/nature2.jpg", thumb: "images/nature/thumb/nature2.jpg", category: 'Nature',  title: 'Bubbly grass'},
-    {src:"images/nature/nature3.jpg", thumb: "images/nature/thumb/nature3.jpg",  category: 'Nature',  title: 'Sunny day'},
-    {src:"images/nature/nature4.jpg", thumb: "images/nature/thumb/nature4.jpg",  category: 'Nature',  title: 'Refreshing breeze'},
-    {src:"images/nature/nature5.jpg", thumb: "images/nature/thumb/nature5.jpg",  category: 'Nature',  title: 'Grassy globe'},
-    {src:"images/nature/nature6.jpg", thumb: "images/nature/thumb/nature6.jpg",  category: 'Nature',  title: 'Grassy globe v2'},
-    {src:"images/nature/nature7.jpg", thumb: "images/nature/thumb/nature7.jpg",  category: 'Nature',  title: 'Sunflower'},
-    {src:"images/nature/nature8.jpg", thumb: "images/nature/thumb/nature8.jpg",  category: 'Nature',  title: 'Butterfly'},
-    {src:"images/city/city1.jpg", thumb: "images/city/thumb/city1.jpg", category: 'City',  title: 'City tree'},
-    {src:"images/city/city2.jpg", thumb: "images/city/thumb/city2.jpg",  category: 'City',  title: 'City globe'},
-    {src:"images/city/city3.jpg", thumb: "images/city/thumb/city3.jpg",  category: 'City',  title: 'Bright city'},
-    {src:"images/city/city4.jpg", thumb: "images/city/thumb/city4.jpg",   category: 'City',  title: 'City grass'},
-    {src:"images/city/city5.jpg", thumb: "images/city/thumb/city5.jpg",   category: 'City',  title: 'Bubble city'},
-    {src:"images/city/city6.jpg", thumb: "images/city/thumb/city6.jpg",   category: 'City',  title: 'Earth view'},
-    {src:"images/city/city7.jpg", thumb: "images/city/thumb/city7.jpg",   category: 'City',  title: '"Birds of lost memories"'},
-    {src:"images/city/city8.jpg", thumb: "images/city/thumb/city8.jpg",   category: 'City',  title: 'Bird City'},
-    {src:"images/city/city9.jpg", thumb: "images/city/thumb/city9.jpg",   category: 'City',  title: 'Falling leaves'},
-    {src:"images/city/city10.jpg",  thumb: "images/city/thumb/city10.jpg",  category: 'City',  title: 'Busy city day'},
-    {src:"images/city/city11.jpg", thumb: "images/city/thumb/city11.jpg",   category: 'City',  title: 'City in a box'},
-    {src:"images/city/city12.jpg", thumb: "images/city/thumb/city12.jpg",   category: 'City',  title: 'City lens'},
-    {src:"images/technology/tech1.jpg", thumb: "images/technology/thumb/tech1.jpg",   category: 'Technology',  title: 'Busy night'},
-    {src:"images/technology/tech2.jpg", thumb: "images/technology/thumb/tech2.jpg",  category: 'Technology',  title: 'Business call'},
-    {src:"images/technology/tech3.jpg", thumb: "images/technology/thumb/tech3.jpg",  category: 'Technology',  title: 'Laptop showcase'},
-    {src:"images/technology/tech4.jpg", thumb: "images/technology/thumb/tech4.jpg",  category: 'Technology',  title: 'Busy day'},
-    {src:"images/technology/tech5.jpg", thumb: "images/technology/thumb/tech5.jpg",  category: 'Technology',  title: 'Look both ways!'},
-    {src:"images/technology/tech6.jpg", thumb: "images/technology/thumb/tech6.jpg",  category: 'Technology',  title: 'Bridge ocean view'},
-    {src:"images/technology/tech7.jpg", thumb: "images/technology/thumb/tech7.jpg",  category: 'Technology',  title: 'Clean laptop'},
-    {src:"images/technology/tech8.jpg", thumb: "images/technology/thumb/tech8.jpg", category: 'Technology',  title: 'Night owl'},
-    {src:"images/technology/tech9.jpg",  thumb: "images/technology/thumb/tech9.jpg", category: 'Technology',  title: 'Master typer'},
-    {src:"images/technology/tech10.jpg",  thumb: "images/technology/thumb/tech10.jpg", category: 'Technology',  title: 'Dirty keys'},
+    {src:"images/nature/nature1.jpg", category: 'Nature',  title: 'Nice meadow'},
+    {src:"images/nature/nature2.jpg", category: 'Nature',  title: 'Bubbly grass'},
+    {src:"images/nature/nature3.jpg", category: 'Nature',  title: 'Sunny day'},
+    {src:"images/nature/nature4.jpg", category: 'Nature',  title: 'Refreshing breeze'},
+    {src:"images/nature/nature5.jpg", category: 'Nature',  title: 'Grassy globe'},
+    {src:"images/nature/nature6.jpg", category: 'Nature',  title: 'Grassy globe v2'},
+    {src:"images/nature/nature7.jpg", category: 'Nature',  title: 'Sunflower'},
+    {src:"images/nature/nature8.jpg", category: 'Nature',  title: 'Butterfly'},
+    {src:"images/city/city1.jpg", category: 'City',  title: 'City tree'},
+    {src:"images/city/city2.jpg", category: 'City',  title: 'City globe'},
+    {src:"images/city/city3.jpg", category: 'City',  title: 'Bright city'},
+    {src:"images/city/city4.jpg", category: 'City',  title: 'City grass'},
+    {src:"images/city/city5.jpg", category: 'City',  title: 'Bubble city'},
+    {src:"images/city/city6.jpg", category: 'City',  title: 'Earth view'},
+    {src:"images/city/city7.jpg", category: 'City',  title: '"Birds of lost memories"'},
+    {src:"images/city/city8.jpg", category: 'City',  title: 'Bird City'},
+    {src:"images/city/city9.jpg", category: 'City',  title: 'Falling leaves'},
+    {src:"images/city/city10.jpg", category: 'City',  title: 'Busy city day'},
+    {src:"images/city/city11.jpg", category: 'City',  title: 'City in a box'},
+    {src:"images/city/city12.jpg", category: 'City',  title: 'City lens'},
+    {src:"images/technology/tech1.jpg", category: 'Technology',  title: 'Busy night'},
+    {src:"images/technology/tech2.jpg", category: 'Technology',  title: 'Business call'},
+    {src:"images/technology/tech3.jpg",  category: 'Technology',  title: 'Laptop showcase'},
+    {src:"images/technology/tech4.jpg", category: 'Technology',  title: 'Busy day'},
+    {src:"images/technology/tech5.jpg", category: 'Technology',  title: 'Look both ways!'},
+    {src:"images/technology/tech6.jpg", category: 'Technology',  title: 'Bridge ocean view'},
+    {src:"images/technology/tech7.jpg", category: 'Technology',  title: 'Clean laptop'},
+    {src:"images/technology/tech8.jpg", category: 'Technology',  title: 'Night owl'},
+    {src:"images/technology/tech9.jpg", category: 'Technology',  title: 'Master typer'},
+    {src:"images/technology/tech10.jpg", category: 'Technology',  title: 'Dirty keys'},
 ];
 
 let filteredImages = [...images];
@@ -85,8 +85,7 @@ function renderGallery(imagesToRender) {
     //add images to gallery
     imagesToRender.forEach(image => {
         const imgElement = document.createElement('img');
-        imgElement.src = image.thumb || image.src; //fallback if no thumb
-        imgElement.dataset.fullsrc = image.src;
+        imgElement.src = image.src;
         imgElement.alt = image.title;
         imgElement.classList.add('gallery-item');
         imgElement.dataset.category = image.category;
@@ -116,7 +115,6 @@ function filterImages(event) {
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-image');
 const lightboxTitle = document.getElementById('lightbox-title');
-const closeButton = document.querySelector('#lightbox .close');
 const leftArrow = document.querySelector('.lightbox-arrow.left');
 const rightArrow = document.querySelector('.lightbox-arrow.right');
 
@@ -231,8 +229,8 @@ document.addEventListener('DOMContentLoaded', () => {
     //lightbox function
     document.querySelector('#gallery').addEventListener('click', (e) => {
         if (e.target && e.target.matches('.gallery-item')) {
-            const fullSrc = e.target.dataset.fullsrc;
-            currentIndex = filteredImages.findIndex(img => img.src === fullSrc);
+            const clickedSrc = e.target.src;
+            currentIndex = filteredImages.findIndex(img => clickedSrc.includes(img.src));
             if (currentIndex !== -1) {
                 openLightbox(currentIndex);
             }
