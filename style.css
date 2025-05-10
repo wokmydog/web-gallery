@@ -364,7 +364,7 @@ body.dark-mode #gallery-box{
 
   /*slideout menu fills screen */
   #slideout-menu {
-    width: 100vw;
+    width: 95vw;
     height: 100vh;
     left: -120vw;
     top: 60px;
@@ -395,13 +395,13 @@ body.dark-mode #gallery-box{
 
   /*lightbox*/
   #lightbox .lightbox-content {
-    max-width: 70vw;
-    max-height: 70vh;
+    max-width: 90vw;
+    max-height: 80vh;
   }
 
   #lightbox .lightbox-content img {
-    max-width: 70vw;
-    max-height: 70vh;
+    max-width: 90vw;
+    max-height: 80vh;
   }
 
   /*lightbox arrows*/
