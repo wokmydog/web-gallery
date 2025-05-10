@@ -365,7 +365,7 @@ body.dark-mode #gallery-box{
   /*slideout menu fills screen */
   #slideout-menu {
     width: 100vw;
-    left: -100vw;
+    left: -120vw;
     top: 62px;
     padding-top: 1rem;
     z-index: 5500;
@@ -384,11 +384,6 @@ body.dark-mode #gallery-box{
   #slideout-menu button {
     font-size: 13px;
     padding: 8px;
-  }
-
-  #slideout-menu {
-    right: 0;
-    left: -100vw;
   }
 
   /*filter buttons*/
