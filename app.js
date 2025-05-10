@@ -91,6 +91,7 @@ function renderGallery(imagesToRender) {
         imgElement.alt = image.title;
         imgElement.classList.add('gallery-item');
         imgElement.dataset.category = image.category;
+        imgElement.loading = 'lazy';
         gallery.appendChild(imgElement);
     });
 
