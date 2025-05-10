@@ -408,7 +408,7 @@ body.dark-mode #gallery-box{
 
   /*lightbox arrows*/
   .lightbox-arrow {
-  font-size: 2rem;
+  font-size: 3rem;
   padding: 0 0.8rem;
 }
 
@@ -419,11 +419,11 @@ body.dark-mode #gallery-box{
   }
 
   .lightbox-arrow.left {
-    left: -40px;
+    left: -20px;
   }
 
   .lightbox-arrow.right {
-    right: -40px;
+    right: -20px;
   }
 
   #lightbox .lightbox-title {
