@@ -325,3 +325,77 @@ body.dark-mode #gallery-box{
     font-size: 1.2rem;
     font-weight: 500;
   }
+
+/*mobile support*/
+@media (max-width: 768px) {
+  /*header, logo */
+  #header {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  #logo {
+    max-width: 50vw;
+    max-height: 50px;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+  }
+
+  #hamburger {
+    position: relative;
+    font-size: 24px;
+    margin-right: auto;
+    z-index: 6000;
+  }
+
+  /*slideout menu fills screen */
+  #slideout-menu {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  /*slideout menu buttons*/
+  #slideout-menu button {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  /*lightbox*/
+  #lightbox .lightbox-content img {
+    max-width: 90vw;
+    max-height: 70vh;
+  }
+
+  /*galler single collum*/
+  .image-gallery {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /*smaller buttons*/
+  .filter-buttons button,
+  #theme-toggle,
+  #apply-background,
+  #clear-custom-bg {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  /*lightbox arrows*/
+  .lightbox-arrow.left {
+    left: -40px;
+  }
+
+  .lightbox-arrow.right {
+    right: -40px;
+  }
+}
