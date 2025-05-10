@@ -125,12 +125,21 @@ let isAutoCarouselActive = true; //indicate if active
 
 //move next image on list
 function showNextImageWithFade() {
-    currentIndex = (currentIndex + 1) % filteredImages.length; //loop back
-    lightboxImg.classList.remove('fade-in'); //fade
+    const oldImage = lightboxImg.cloneNode(true);
+    oldImage.classList.add('fade-out');
+    lightboxImg.parentNode.insertBefore(oldImage, lightboxImg);
+
+    currentIndex = (currentIndex + 1) % filteredImages.length;
+
+    // Set up new image
     lightboxImg.src = filteredImages[currentIndex].src;
     lightboxTitle.textContent = filteredImages[currentIndex].title;
-    void lightboxImg.offsetWidth; // trigger reflow
-    lightboxImg.classList.add('fade-in');
+
+    // Force browser to render before removing the old image
+    requestAnimationFrame(() => {
+        oldImage.style.opacity = '0';
+        setTimeout(() => oldImage.remove(), 1000); // match fade duration
+    });
 }
 
 //start automatic carousel loop, calls itself to keep looping

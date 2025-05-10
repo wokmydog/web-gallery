@@ -282,6 +282,11 @@ body.dark-mode #gallery-box{
     transition: transform 0.3s ease-in-out;
   }
 
+  #lightbox .lightbox-content img.fade-out {
+    opacity: 0;
+    z-index: 0;
+  }
+
   .lightbox .close {
     position: absolute;
     top: 10px;
