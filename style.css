@@ -366,7 +366,7 @@ body.dark-mode #gallery-box{
   #slideout-menu {
     width: 100vw;
     left: -100vw;
-    top: 65px;
+    top: 62px;
     padding-top: 1rem;
     z-index: 5500;
     display: flex;
