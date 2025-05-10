@@ -161,7 +161,7 @@ function applyCustomBackground(imageDataUrl) {
     document.body.prepend(bg);
   }
 
-//events
+
 document.addEventListener('DOMContentLoaded', () => {
     renderGallery();
     const body = document.body;
@@ -222,8 +222,16 @@ document.addEventListener('DOMContentLoaded', () => {
         location.reload();
     });
 
-    });
+   //slide menu
+   const hamburger = document.getElementById('hamburger');
+   const slideoutMenu = document.getElementById('slideout-menu');
+   const themeToggleBtn = document.getElementById('theme-toggle');
 
+   hamburger.addEventListener('click', () => {
+   slideoutMenu.classList.toggle('open');
+   });
+
+    //lightbox function
     document.querySelector('#gallery').addEventListener('click', (e) => {
         if (e.target && e.target.matches('.gallery-item')) {
             const clickedSrc = e.target.src;
@@ -250,12 +258,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+});
 
-//slide menu
-const hamburger = document.getElementById('hamburger');
-const slideoutMenu = document.getElementById('slideout-menu');
-const themeToggleBtn = document.getElementById('theme-toggle');
 
-hamburger.addEventListener('click', () => {
-    slideoutMenu.classList.toggle('open');
-  });
+
+
+
