@@ -118,6 +118,59 @@ const lightboxTitle = document.getElementById('lightbox-title');
 const leftArrow = document.querySelector('.lightbox-arrow.left');
 const rightArrow = document.querySelector('.lightbox-arrow.right');
 
+// Auto-carousel variables
+let autoCarouselTimeout = null; //hold reference to timer
+let autoCarouselDelay = 10000; //time between slides
+let isAutoCarouselActive = true; //indicate if active
+
+//move next image on list
+function showNextImageWithFade() {
+    currentIndex = (currentIndex + 1) % filteredImages.length; //loop back
+    lightboxImg.classList.remove('fade-in'); //fade
+    lightboxImg.src = filteredImages[currentIndex].src;
+    lightboxTitle.textContent = filteredImages[currentIndex].title;
+    void lightboxImg.offsetWidth; // trigger reflow
+    lightboxImg.classList.add('fade-in');
+}
+
+//start automatic carousel loop, calls itself to keep looping
+function startAutoCarousel() {
+    if (!isAutoCarouselActive) return;
+    clearTimeout(autoCarouselTimeout);
+    autoCarouselTimeout = setTimeout(() => {
+        showNextImageWithFade();
+        startAutoCarousel();
+    }, autoCarouselDelay);
+}
+
+//reset timer and restart
+function resetAutoCarousel() {
+    clearTimeout(autoCarouselTimeout);
+    if (isAutoCarouselActive) startAutoCarousel();
+}
+
+//stop carousel, disable it from restart
+function stopAutoCarousel() {
+    clearTimeout(autoCarouselTimeout);
+    isAutoCarouselActive = false;
+}
+
+//adjusts the time between transitions
+function changeCarouselSpeed(seconds) {
+    autoCarouselDelay = seconds * 1000;
+    resetAutoCarousel();
+}
+
+//listen for user activity, when lightbox open, prevent image change while user interaction
+['mousemove', 'keydown', 'click', 'touchstart'].forEach(event => {
+    document.addEventListener(event, () => {
+        if (!lightbox.classList.contains('hidden')) {
+            resetAutoCarousel();
+        }
+    });
+});
+
+
 //opening lightbox
 function openLightbox(index) {
     const image = filteredImages[index];
@@ -153,6 +206,8 @@ function applyCustomBackground(imageDataUrl) {
     bg.src = imageDataUrl;
     document.body.prepend(bg);
   }
+
+//auto carousel
 
 
 document.addEventListener('DOMContentLoaded', () => {
