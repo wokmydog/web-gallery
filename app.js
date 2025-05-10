@@ -241,14 +241,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    closeButton.addEventListener('click', closeLightbox);
+    //closing lightbox when clicked outside
     lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
     });
 
     leftArrow.addEventListener('click', () => navigateLightbox(-1));
     rightArrow.addEventListener('click', () => navigateLightbox(1));
 
+    //key binds
     document.addEventListener('keydown', (e) => {
         if (!lightbox.classList.contains('hidden')) {
             if (e.key === 'ArrowRight') navigateLightbox(1);
