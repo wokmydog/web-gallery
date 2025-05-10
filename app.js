@@ -53,9 +53,6 @@ const images = [
     {src:"images/city/city10.jpg",  thumb: "images/city/thumb/city10.jpg",  category: 'City',  title: 'Busy city day'},
     {src:"images/city/city11.jpg", thumb: "images/city/thumb/city11.jpg",   category: 'City',  title: 'City in a box'},
     {src:"images/city/city12.jpg", thumb: "images/city/thumb/city12.jpg",   category: 'City',  title: 'City lens'},
-    {src:"images/technology/tech1.jpg", thumb: "images/technology/thumb/tech1.jpg",   category: 'Technology',  title: 'Work laptop'},
-    {src:"images/technology/tech2.jpg", thumb: "images/technology/thumb/tech2.jpg",  category: 'Technology',  title: 'At work'},
-    {src:"images/technology/tech3.jpg", thumb: "images/technology/thumb/tech3.jpg",  category: 'Technology',  title: 'Outside laptop'},
     {src:"images/technology/tech4.jpg", thumb: "images/technology/thumb/tech4.jpg",  category: 'Technology',  title: 'Busy day'},
     {src:"images/technology/tech5.jpg", thumb: "images/technology/thumb/tech5.jpg",  category: 'Technology',  title: 'Look both ways!'},
     {src:"images/technology/tech6.jpg", thumb: "images/technology/thumb/tech6.jpg",  category: 'Technology',  title: 'Bridge ocean view'},
@@ -63,8 +60,6 @@ const images = [
     {src:"images/technology/tech8.jpg", thumb: "images/technology/thumb/tech8.jpg", category: 'Technology',  title: 'Night owl'},
     {src:"images/technology/tech9.jpg",  thumb: "images/technology/thumb/tech9.jpg", category: 'Technology',  title: 'Master typer'},
     {src:"images/technology/tech10.jpg",  thumb: "images/technology/thumb/tech10.jpg", category: 'Technology',  title: 'Dirty keys'},
-    {src:"images/technology/tech11.jpg", thumb: "images/technology/thumb/tech11.jpg",  category: 'Technology',  title: 'WWW'},
-    {src:"images/technology/tech12.jpg", thumb: "images/technology/thumb/tech12.jpg",  category: 'Technology',  title: 'Mouse'},
 ];
 
 let filteredImages = [...images];
