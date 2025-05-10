@@ -311,11 +311,11 @@ body.dark-mode #gallery-box{
 }
 
 .lightbox-arrow.left {
-    left: -40px;
+    left: -80px;
 }
 
 .lightbox-arrow.right {
-    right: -40px;
+    right: -80px;
 }
 
 .lightbox-title {
