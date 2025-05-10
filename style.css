@@ -365,8 +365,9 @@ body.dark-mode #gallery-box{
   /*slideout menu fills screen */
   #slideout-menu {
     width: 100vw;
+    height: 100vh;
     left: -120vw;
-    top: 62px;
+    top: 60px;
     padding-top: 1rem;
     z-index: 5500;
     display: flex;
@@ -405,11 +406,15 @@ body.dark-mode #gallery-box{
 
   /*lightbox arrows*/
   .lightbox-arrow.left {
-    left: 10px;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .lightbox-arrow.right {
-    right: 10px;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .image-gallery {
