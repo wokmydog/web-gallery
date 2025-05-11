@@ -101,8 +101,13 @@ function renderGallery(imagesToRender) {
         const star = document.createElement('span');
         star.classList.add('favorite-star');
         const isFav = favorites.includes(image.src);
-        star.textContent = isFav ? '★' : '☆';
-        if (isFav) star.classList.add('filled');
+        
+        // SVG star
+        star.innerHTML = `
+          <svg class="star-icon ${isFav ? 'filled' : ''}" viewBox="0 0 24 24" fill="${isFav ? 'gold' : 'none'}" stroke="gold" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12,2 15,9 22,9 17,14 18.5,21 12,17 5.5,21 7,14 2,9 9,9"/>
+          </svg>
+        `;
 
         //click event
         star.addEventListener('click', (e) => {
@@ -138,16 +143,20 @@ function filterImages(event) {
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 let showingFavorites = false;
 
+
 function toggleFavorite(imageSrc, starElement){
     const index = favorites.indexOf(imageSrc);
+    const svg = starElement.querySelector('svg polygon');
+    const svgWrapper = starElement.querySelector('svg');
+
     if (index === -1) {
         favorites.push(imageSrc);
-        starElement.textContent = '★';
-        starElement.classList.add('filled');
+        svg.setAttribute('fill', 'gold');
+        svgWrapper.classList.add('filled');
     } else {
         favorites.splice(index, 1);
-        starElement.textContent = '☆';
-        starElement.classList.remove('filled');
+        svg.setAttribute('fill', 'none');
+        svgWrapper.classList.remove('filled');
     }
     localStorage.setItem('favorites', JSON.stringify(favorites));
 }
