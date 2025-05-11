@@ -457,7 +457,7 @@ body.dark-mode .favorites-toggle{
     flex-direction: column;
     gap: 1rem;
     position: fixed;
-    transition: left 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     overflow-x: hidden;
     background: rgba(255, 255, 255, 0.8);
   }
@@ -472,8 +472,11 @@ body.dark-mode .favorites-toggle{
 
   /*slideout menu buttons*/
   #slideout-menu button {
-    font-size: 10px;
-    padding: 5px;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    font-size: 13px;
+    padding: 8px;
   }
 
   /*filter buttons*/
