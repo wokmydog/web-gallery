@@ -74,14 +74,14 @@ function renderGallery(imagesToRender) {
     const container = document.getElementById('gallery');
     container.innerHTML = '';
 
-    //wrapper div fro gallery
+    const fragment = document.createDocumentFragment();
     const galleryBox = document.createElement('div');
     galleryBox.id = 'gallery-box';
 
     const gallery = document.createElement('section');
     gallery.classList.add('image-gallery');
     galleryBox.appendChild(gallery);
-    container.appendChild(galleryBox);
+    fragment.appendChild(galleryBox);
 
     //add images to gallery
     imagesToRender.forEach(image => {
@@ -115,12 +115,9 @@ function renderGallery(imagesToRender) {
             e.stopPropagation();
             toggleFavorite(image.src, star);
         });
-
-        wrapper.appendChild(imgElement);
-        wrapper.appendChild(star);
         gallery.appendChild(wrapper);
     });
-
+    container.appendChild(fragment);
 }
 
 
