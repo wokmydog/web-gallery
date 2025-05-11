@@ -128,9 +128,13 @@ function filterImages(event) {
     const category = event.target.dataset.category;
     if (!category) return;
 
+    const baseList = showingFavorites
+    ? images.filter(img => favorites.includes(img.src))
+    : images;
+
     filteredImages = category === "all"
-        ? [...images]
-        : images.filter(img => img.category === category);
+    ? [...baseList]
+    : baseList.filter(img => img.category === category);
 
     renderGallery(filteredImages);
 
@@ -159,6 +163,13 @@ function toggleFavorite(imageSrc, starElement){
         svgWrapper.classList.remove('filled');
     }
     localStorage.setItem('favorites', JSON.stringify(favorites));
+
+    //if showing favorites, re-render just those
+    if (showingFavorites) {
+        const updatedFavs = images.filter(img => favorites.includes(img.src));
+        filteredImages = updatedFavs;
+        renderGallery(updatedFavs);
+    }
 }
 
 //lightbox
@@ -235,14 +246,23 @@ function openLightbox(index) {
     const lightboxStar = document.getElementById('lightbox-favorite');
     if (lightboxStar) {
     const isFav = favorites.includes(image.src);
-    lightboxStar.textContent = isFav ? '★' : '☆';
+    //svg fill logic
+    const polygon = lightboxStar.querySelector('polygon');
+    const svgWrapper = lightboxStar.querySelector('svg');
+    polygon.setAttribute('fill', isFav ? 'gold' : 'none');
+    svgWrapper.classList.toggle('filled', isFav);
 
     lightboxStar.onclick = (e) => {
         toggleFavorite(image.src, lightboxStar);
+    const isNowFav = favorites.includes(image.src);
+    polygon.setAttribute('fill', isNowFav ? 'gold' : 'none');
+    svgWrapper.classList.toggle('filled', isNowFav);
         // Refresh gallery if showing favorites
         if (showingFavorites) {
             const favImages = images.filter(img => favorites.includes(img.src));
+            filteredImages = favImages;
             renderGallery(favImages);
+            closeLightbox();
         }
     };
 }
