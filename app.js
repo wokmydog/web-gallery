@@ -139,7 +139,7 @@ let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 let showingFavorites = false;
 
 function toggleFavorite(imageSrc, starElement){
-    const index = favorites.indexOf(image.src);
+    const index = favorites.indexOf(imageSrc);
     if (index === -1) {
         favorites.push(imageSrc);
         starElement.textContent = '★';

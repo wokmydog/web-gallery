@@ -29,12 +29,15 @@
     <button data-category="Technology">Technology</button>
   </div>
 
-  <button id="toggle-favorites" title="Show favorites">☆</button>
-  
+  <div id="gallery-controls">
+    <button id="toggle-favorites" class="favorites-toggle">☆ Show Favorites</button>
+  </div>
+
   <div id="gallery"></div>
 
   <div id="lightbox" class="hidden">
     <div class="lightbox-content">
+      <span id="lightbox-favorite" class="favorite-star" style="position:absolute;top:20px;right:20px;"></span>
       <img id="lightbox-image" src="" alt="Expanded image">
       <div class="lightbox-title" id="lightbox-title"></div>
       <div class="lightbox-arrow left">&#10094;</div>
