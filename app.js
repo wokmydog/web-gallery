@@ -73,7 +73,7 @@ function renderGallery(imagesToRender) {
     const container = document.getElementById('gallery');
     container.innerHTML = '';
 
-    //create and populate gallery
+    //wrapper div fro gallery
     const galleryBox = document.createElement('div');
     galleryBox.id = 'gallery-box';
 
@@ -84,17 +84,41 @@ function renderGallery(imagesToRender) {
 
     //add images to gallery
     imagesToRender.forEach(image => {
+        //wrapper div for each image and star
+        const wrapper = document.createElement('div')
+        wrapper.classList.add('gallery-item-wrapper')
+        wrapper.style.position = 'relative';
+
+        //image setup
         const imgElement = document.createElement('img');
         imgElement.src = image.src;
         imgElement.alt = image.title;
         imgElement.classList.add('gallery-item');
         imgElement.dataset.category = image.category;
         imgElement.loading = 'lazy'; //lazy loading
-        gallery.appendChild(imgElement);
+
+        //create span for star icon
+        const star = document.createElement('span');
+        star.classList.add('favorite-star');
+        const isFav = favorites.includes(image.src);
+        star.textContent = isFav ? '★' : '☆';
+        if (isFav) star.classList.add('filled');
+
+        //click event
+        star.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleFavorite(image.src, star);
+        });
+
+        wrapper.appendChild(imgElement);
+        wrapper.appendChild(star);
+        gallery.appendChild(wrapper);
     });
 
 }
 
+
+//filter images function
 function filterImages(event) {
     const category = event.target.dataset.category;
     if (!category) return;
@@ -110,6 +134,23 @@ function filterImages(event) {
     }
 }
 
+//favorite function
+let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+let showingFavorites = false;
+
+function toggleFavorite(imageSrc, starElement){
+    const index = favorites.indexOf(image.src);
+    if (index === -1) {
+        favorites.push(imageSrc);
+        starElement.textContent = '★';
+        starElement.classList.add('filled');
+    } else {
+        favorites.splice(index, 1);
+        starElement.textContent = '☆';
+        starElement.classList.remove('filled');
+    }
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+}
 
 //lightbox
 const lightbox = document.getElementById('lightbox');
@@ -181,6 +222,22 @@ function openLightbox(index) {
     lightbox.classList.remove('hidden');
     lightbox.classList.add('visible');
 
+    //favoriting in lightbox
+    const lightboxStar = document.getElementById('lightbox-favorite');
+    if (lightboxStar) {
+    const isFav = favorites.includes(image.src);
+    lightboxStar.textContent = isFav ? '★' : '☆';
+
+    lightboxStar.onclick = (e) => {
+        toggleFavorite(image.src, lightboxStar);
+        // Refresh gallery if showing favorites
+        if (showingFavorites) {
+            const favImages = images.filter(img => favorites.includes(img.src));
+            renderGallery(favImages);
+        }
+    };
+}
+
     document.getElementById('carousel-controls')?.classList.add('visible');
 }
 
@@ -222,6 +279,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetBackgroundBtn = document.getElementById('clear-custom-bg');
 
     document.querySelector('.filter-buttons').addEventListener('click', filterImages);
+
+    //favorites
+    document.getElementById('toggle-favorites').addEventListener('click', () => {
+        showingFavorites = !showingFavorites;
+        const btn = document.getElementById('toggle-favorites');
+        btn.textContent = showingFavorites ? '★' : '☆';
+    
+        if (showingFavorites) {
+            const favoriteImages = images.filter(img => favorites.includes(img.src));
+            renderGallery(favoriteImages);
+        } else {
+            renderGallery(filteredImages);
+        }
+    });
 
     //load saved theme
     const savedTheme = localStorage.getItem('theme');
@@ -312,6 +383,8 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (e.key === 'Escape') closeLightbox();
         }
     });
+
+    
 
 });
 

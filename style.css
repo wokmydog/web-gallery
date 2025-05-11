@@ -241,6 +241,26 @@ body.dark-mode #gallery-box{
     transform: scale(1.05);
   }
 
+/*favorite*/
+.favorites-toggle {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.favorite-star {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: gold;
+  cursor: pointer;
+  z-index: 2;
+}
+.favorite-star.filled {
+  content: '★';
+}
+
 /*lightbox*/
 #lightbox {
     position: fixed;
