@@ -446,7 +446,7 @@ body.dark-mode .favorites-toggle{
   /*slideout menu fills screen */
   #slideout-menu {
     width: 100vw;
-    height: calc(100vh - 60px);
+    height: 100vh;
     transform: translateX(-100%);
     left: 0;
     top: 60px;
