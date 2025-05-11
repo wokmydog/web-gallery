@@ -316,21 +316,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('toggle-favorites').addEventListener('click', () => {
         showingFavorites = !showingFavorites;
         const btn = document.getElementById('toggle-favorites');
-        
-    //toggle icon fill
-    iconPath.setAttribute('fill', showingFavorites ? 'currentColor' : 'none');
+        const icon = btn.querySelector('svg polygon'); // Get the polygon inside the SVG
     
-    const baseList = showingFavorites
-        ? images.filter(img => favorites.includes(img.src))
-        : images;
-
-    filteredImages = currentCategory === "all"
-        ? [...baseList]
-        : baseList.filter(img => img.category === currentCategory);
-
+        //toggle icon fill
+        icon?.setAttribute('fill', showingFavorites ? 'currentColor' : 'none');
+    
+        const baseList = showingFavorites
+            ? images.filter(img => favorites.includes(img.src))
+            : images;
+    
+        filteredImages = currentCategory === "all"
+            ? [...baseList]
+            : baseList.filter(img => img.category === currentCategory);
+    
         renderGallery(filteredImages);
     });
-
+        
     //load saved theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
