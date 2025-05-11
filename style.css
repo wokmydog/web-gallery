@@ -283,8 +283,8 @@ body.dark-mode .favorites-toggle{
 }
 
 .star-icon {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   transition: transform 0.3s ease;
   stroke: gold;
 }
