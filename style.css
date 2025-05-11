@@ -3,7 +3,6 @@ body {
     font-family: 'frutiger';
     position: relative;
     overflow-x: hidden;
-    transition: background-image 3s ease-in-out;
 }
 
 #header {
@@ -411,6 +410,12 @@ body.dark-mode .favorites-toggle{
     visibility: visible;
   }
   
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
 /*mobile support*/
 @media (max-width: 768px) {
   body {
