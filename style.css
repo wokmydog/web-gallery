@@ -501,11 +501,11 @@ body.dark-mode .favorites-toggle{
 
 
   .lightbox-arrow.left {
-    left: 10px;
+    left: -10px;
   }
 
   .lightbox-arrow.right {
-    right: 10px;
+    right: -10px;
   }
 
   #lightbox .lightbox-title {
