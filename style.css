@@ -490,14 +490,13 @@ body.dark-mode .favorites-toggle{
   /*lightbox*/
   #lightbox .lightbox-content,
   #lightbox .lightbox-content img {
-    max-width: 90vw;
+    max-width: 80vw;
     max-height: 80vh;
   }
 
   /*lightbox arrows*/
   .lightbox-arrow {
-    font-size: 2rem;
-    padding: 8px;
+    font-size: 2.5rem;
   }
 
 
