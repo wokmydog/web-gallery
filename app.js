@@ -115,6 +115,9 @@ function renderGallery(imagesToRender) {
             e.stopPropagation();
             toggleFavorite(image.src, star);
         });
+
+        wrapper.appendChild(imgElement);
+        wrapper.appendChild(star);
         gallery.appendChild(wrapper);
     });
     container.appendChild(fragment);
