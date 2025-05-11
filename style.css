@@ -264,34 +264,26 @@ body.dark-mode .favorites-toggle{
 
 /*favorite*/
 #favorites-toggle-container {
-  position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
-  z-index: 10;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  margin-top: 1rem;
 }
 
 #toggle-favorites {
-  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ccc;
   border-radius: 6px;
   padding: 6px 10px;
   cursor: pointer;
   display: flex;
   align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s;
 }
 
-#toggle-favorites.active {
-  background-color: gold;
-  border-color: goldenrod;
-}
-
-#toggle-favorites svg {
-  stroke: #333;
-}
-
-#toggle-favorites.active svg {
-  stroke: black;
-  fill: gold;
-}
 
 #toggle-favorites:hover {
   background-color: #e0e0e0;
