@@ -263,13 +263,31 @@ body.dark-mode .favorites-toggle{
   }
 
 /*favorite*/
-.favorites-toggle {
-  font-size: 24px;
-  backdrop-filter: blur(6px);
-  background: rgba(255, 255, 255, 0.1);
-  border: 10px;
+#favorites-toggle-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  margin-top: 1rem;
+}
+
+#toggle-favorites {
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 6px 10px;
   cursor: pointer;
-  color: gold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s;
+}
+
+
+#toggle-favorites:hover {
+  background-color: #e0e0e0;
 }
 
 .favorite-star {
