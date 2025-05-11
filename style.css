@@ -192,6 +192,11 @@ body.dark-mode #gallery-box{
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+body.dark-mode .favorites-toggle{
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
 /*darkmode end*/
 
 #gallery-background {
