@@ -254,11 +254,12 @@ body.dark-mode #gallery-box{
   background: rgba(255, 255, 255, 0.1);
   border: 10px;
   cursor: pointer;
+  color: gold;
 }
 .favorite-star {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 4px;
+  right: 4px;
   font-size: 28px;
   color: gold;
   cursor: pointer;
