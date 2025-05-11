@@ -446,7 +446,7 @@ body.dark-mode .favorites-toggle{
   /*slideout menu fills screen */
   #slideout-menu {
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 60px);
     transform: translateX(-100%);
     left: 0;
     top: 60px;
@@ -459,11 +459,6 @@ body.dark-mode .favorites-toggle{
     position: fixed;
     transition: transform 0.3s ease-in-out;
     overflow-x: hidden;
-    background: rgba(255, 255, 255, 0.8);
-  }
-
-  body.dark-mode #slideout-menu {
-    background: rgba(30, 30, 30, 0.8);
   }
 
   #slideout-menu.open {
@@ -501,11 +496,11 @@ body.dark-mode .favorites-toggle{
 
 
   .lightbox-arrow.left {
-    left: -30px;
+    left: -60px;
   }
 
   .lightbox-arrow.right {
-    right: -30px;
+    right: -60px;
   }
 
   #lightbox .lightbox-title {
