@@ -450,7 +450,7 @@ body.dark-mode .favorites-toggle{
     transform: translateX(-100%);
     left: 0;
     top: 60px;
-    padding-top: 1rem;
+    padding: 1rem 0;
     z-index: 5500;
     align-items: center;
     display: flex;
@@ -473,8 +473,10 @@ body.dark-mode .favorites-toggle{
   /*slideout menu buttons*/
   #slideout-menu button {
     width: 80%;
-    max-width: 300px;
+    max-width: 80vw;
+    margin: 0 auto;
     text-align: center;
+    display: block;
     font-size: 13px;
     padding: 8px;
   }
