@@ -67,6 +67,7 @@ const images = [
 
 let filteredImages = [...images];
 let currentIndex = 0;
+let currentCategory = 'all';
 
 //rendering gallery
 function renderGallery(imagesToRender) {
@@ -127,6 +128,8 @@ function renderGallery(imagesToRender) {
 function filterImages(event) {
     const category = event.target.dataset.category;
     if (!category) return;
+
+    currentCategory = category; 
 
     const baseList = showingFavorites
     ? images.filter(img => favorites.includes(img.src))
@@ -309,18 +312,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('.filter-buttons').addEventListener('click', filterImages);
 
-    //favorites
+    //toggle favorites
     document.getElementById('toggle-favorites').addEventListener('click', () => {
         showingFavorites = !showingFavorites;
         const btn = document.getElementById('toggle-favorites');
-        btn.textContent = showingFavorites ? '★' : '☆';
+        
+    //toggle icon fill
+    iconPath.setAttribute('fill', showingFavorites ? 'currentColor' : 'none');
     
-        if (showingFavorites) {
-            const favoriteImages = images.filter(img => favorites.includes(img.src));
-            renderGallery(favoriteImages);
-        } else {
-            renderGallery(filteredImages);
-        }
+    const baseList = showingFavorites
+        ? images.filter(img => favorites.includes(img.src))
+        : images;
+
+    filteredImages = currentCategory === "all"
+        ? [...baseList]
+        : baseList.filter(img => img.category === currentCategory);
+
+        renderGallery(filteredImages);
     });
 
     //load saved theme
