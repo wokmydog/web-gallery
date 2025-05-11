@@ -192,6 +192,8 @@ function openLightbox(index) {
     lightbox.classList.remove('hidden');
     lightbox.classList.add('visible');
 
+    if (autoPlay) startAutoPlay(); //only start if enabled
+
     //favoriting in lightbox
     const lightboxStar = document.getElementById('lightbox-favorite');
     if (lightboxStar) {
@@ -224,7 +226,8 @@ function openLightbox(index) {
 function closeLightbox() {
     lightbox.classList.remove('visible');
     lightbox.classList.add('hidden');
-
+    stopAutoPlay();
+    
     document.getElementById('carousel-controls')?.classList.remove('visible');
 }
 
@@ -380,7 +383,7 @@ let autoPlayTimer = null;
 
 function startAutoPlay() {
     clearInterval(autoPlayTimer);
-    if (lightbox.style.display !== 'flex') return; //only run if open
+    if (!lightbox.classList.contains('visible')) return; //only run if open
     autoPlayTimer = setInterval(() => {
       navigateLightbox(1);
     }, autoPlayInterval);
