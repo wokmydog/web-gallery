@@ -232,6 +232,17 @@ body.dark-mode .favorites-toggle{
     margin: 0 auto;
     padding: 0;
   }
+
+  .gallery-item-wrapper {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-item-wrapper:hover {
+    transform: scale(1.05);
+    z-index: 2;
+  }
   
   .gallery-item {
     width: 100%;
@@ -242,7 +253,7 @@ body.dark-mode .favorites-toggle{
     cursor: pointer;
   }
   
-  .gallery-item:hover {
+  .gallery-item-wrapper:hover .favorite-star {
     transform: scale(1.05);
   }
 
@@ -270,10 +281,6 @@ body.dark-mode .favorites-toggle{
   cursor: pointer;
   z-index: 10;
   text-shadow: 1px 1px 4px black; 
-}
-
-.favorite-star:hover{
-  transform: scale(1.05);
 }
 
 .favorite-star.filled {
